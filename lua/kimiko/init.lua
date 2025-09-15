@@ -2,15 +2,15 @@ local M = {}
 
 function M.colorscheme()
   -- Load the main colors
-  require("themery.colors").apply()
+  require("kimiko.colors").apply()
 end
 
 function M.lualine()
-  return require("themery.lualine")
+  return require("kimiko.lualine")
 end
 
 function M.snacks()
-  require("themery.snacks").apply()
+  require("kimiko.snacks").apply()
 end
 
 function M.treesitter()

@@ -60,7 +60,7 @@ function M.apply()
     vim.cmd("syntax reset")
   end
   vim.o.background = "dark"
-  vim.g.colors_name = "themery"
+  vim.g.colors_name = "kimiko"
 
   -- Basic highlight groups
 
@@ -114,19 +114,19 @@ function M.apply()
   vim.api.nvim_set_hl(0, "ModeMsg", { fg = p.fg2 }) -- Mode messages
 
   -- Apply Treesitter theming
-  require("themery.treesitter").apply()
+  require("kimiko.treesitter").apply()
 
   -- Apply Snacks.nvim theming
-  require("themery.snacks").apply()
+  require("kimiko.snacks").apply()
 
   -- Apply todo-comments.nvim theming
-  require("themery.todo-comments").apply()
+  require("kimiko.todo-comments").apply()
 
   -- Apply Noice.nvim theming
-  require("themery.noice").apply()
+  require("kimiko.noice").apply()
 
   -- Apply neotree theming
-  require("themery.neotree").apply()
+  require("kimiko.neotree").apply()
 end
 
 return M 

@@ -1,33 +1,33 @@
-local colors = require("themery.colors").palette
+local colors = require("kimiko.colors").palette
 
-local themery = {}
+local kimiko = {}
 
-themery.normal = {
+kimiko.normal = {
   a = { fg = colors.bg1, bg = colors.color2, gui = "bold" },
   b = { fg = colors.fg1, bg = "#2A2A2A" },
   c = { fg = colors.uic1, bg = "#1A1A1A" },
 }
 
-themery.insert = {
+kimiko.insert = {
   a = { fg = colors.bg1, bg = colors.color1, gui = "bold" },
 }
 
-themery.visual = {
+kimiko.visual = {
   a = { fg = colors.bg1, bg = colors.color6, gui = "bold" },
 }
 
-themery.replace = {
+kimiko.replace = {
   a = { fg = colors.bg1, bg = colors.color5, gui = "bold" },
 }
 
-themery.command = {
+kimiko.command = {
   a = { fg = colors.bg1, bg = colors.color3, gui = "bold" },
 }
 
-themery.inactive = {
+kimiko.inactive = {
   a = { fg = colors.uic1, bg = colors.bg1 },
   b = { fg = colors.uic1, bg = colors.bg1 },
   c = { fg = colors.uic1, bg = colors.bg1 },
 }
 
-return themery 
+return kimiko 

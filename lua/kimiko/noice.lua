@@ -1,4 +1,4 @@
-local colors = require("themery.colors").palette
+local colors = require("kimiko.colors").palette
 
 local M = {}
 

@@ -1,1 +1,1 @@
-require("themery").colorscheme() 
+require("kimiko").colorscheme() 

@@ -1,0 +1,2 @@
+require("kimiko").colorscheme()
+

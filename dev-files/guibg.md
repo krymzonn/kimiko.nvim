@@ -1,0 +1,23 @@
+- #004406: DiffAdd
+- #005187: Search
+- #005f00: MatchParen
+- #005f13: PmenuSel
+- #005f5f: Visual
+- #00875f: TabLineSel
+- #080808: ColorColumn
+- #1c1c1c: CursorLine
+- #232345: DiffChange
+- #262626: CursorColumn
+- #2d2121: LineNr, StatusLine
+- #323030: Pmenu
+- #343466: DiffText
+- #393736: StatusLineNC
+- #3a3a3a: VertSplit, WinSeparator
+- #433a3b: Todo
+- #440011: SpellCap
+- #442211: SpellBad
+- #4e4e4e: TabLine
+- #4e4e52: TabLineFill
+- #510000: Error
+- #663230: DiffDelete
+- #8aff04: IncSearch

@@ -1,46 +1,18 @@
-# Themery (Neovim Theme Template)
-
-Themery is a starter template for building and publishing your own Neovim colorscheme plugin. It comes with an example theme ("kimiko") demonstrating:
+# kimiko.nvim
 
 - Centralized palette with semantic slots
 - Treesitter, UI, and popular plugin highlight groups
 - Lualine, Snacks.nvim, Noice.nvim, Neo-tree, todo-comments integrations
 
-Fork it, rename it, swap the palette values, and you have a new theme.
-
-## Why This Template?
-
-- Opinionated yet minimal structure (one palette → many modules)
-- Semantic color slots (change intent, not 200 hex codes)
-- Clearly commented palette explaining usage of each key
 - Modular apply() functions—remove what you don't need
 - Ready for local development via `lazy.nvim`
 
-## Quick Start (TL;DR)
-
-1. Fork this repo (or use "Use this template")
-2. Rename occurrences of `kimiko` to your theme name (e.g. `moonlightedge`)
-3. Rename directory `lua/kimiko/` → `lua/moonlightedge/`
 4. Edit `lua/moonlightedge/colors.lua` palette values only first
 5. Load locally with a path plugin spec in your Neovim config
 6. Tweak highlight logic if desired (Treesitter, plugins, etc.)
 7. Add screenshots & publish to GitHub (name your repo moonlightedge.nvim) + a tag
 
 ---
-
-## 1. Renaming the Template
-
-Assume your new theme name is `moonlightedge` (replace with yours):
-
-Rename the main module directory:
-
-```bash
-mv lua/kimiko lua/moonlightedge
-```
-
-Search & replace the name inside the repo.
-
-Update the README accordingly.
 
 ## 2. Understanding the Palette
 
@@ -171,10 +143,6 @@ Document them with comments.
 If you improve structure (new semantic slot ideas, helper utilities) feel free to open a PR here so all derivative themes can benefit.
 
 ---
-
-Original example theme name: `kimiko` (retained for reference). Replace everywhere when creating your own.
-
-Happy theming! 🎨
 
 ## License
 

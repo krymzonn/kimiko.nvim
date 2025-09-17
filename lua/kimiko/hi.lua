@@ -7,8 +7,12 @@ local groups = {
 		Normal = { fg = p.fg1, bg = "NONE" },
 		LineNr = { fg = p.line },
 		CursorLine = { bg = p.bg1 },
+		CursorColumn = { bg = p.bg2 },
 		ColorColumn = { bg = p.bg0 },
-		-- More: CursorColumn = { bg = p.bg2 },
+		NonText = { fg = p.ui_nontext_fg },
+		SpecialKey = { fg = p.ui_nontext_fg },
+		ModeMsg = { fg = p.fg_dim },
+		MoreMsg = { fg = p.fg_dim },
 	},
 	syntax = {
 		Comment = { fg = p.fgc },
@@ -117,10 +121,9 @@ return {
 		opts = opts or { transparent = true }
 		for _, tbl in pairs(groups) do
 			for name, attrs in pairs(tbl) do
-				-- Apply bold/underline as before
-				if opts.transparent and attrs.bg then
-					attrs.bg = "NONE" -- Global transparent toggle
-				end
+				--if opts.transparent and attrs.bg then
+				--	attrs.bg = "NONE" -- Global transparent toggle
+				--end
 				if vim.tbl_contains(bold_groups, name) then
 					opts.bold = true
 				end

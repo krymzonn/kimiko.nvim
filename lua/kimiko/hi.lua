@@ -18,7 +18,7 @@ local groups = {
     Statement       = { fg = p.kw },
     Conditional     = { fg = p.warn },
     Type            = { fg = p.type },
-    Function        = { fg = p.fn, underline = true },
+    Function        = { fg = p.fn },
     Identifier      = { fg = p.fn },
     String          = { fg = p.str },
     Number          = { fg = p.num },
@@ -26,7 +26,7 @@ local groups = {
     PreProc         = { fg = p.op },
     Constant        = { fg = p.succ },
     Special         = { fg = p.err },
-    Todo            = { fg = p.warn, underline = true },
+    Todo            = { fg = p.warn },
     pythonStatement = { fg = p.kw },
     pythonBuiltin   = { fg = p.type },
   },
@@ -44,9 +44,9 @@ local groups = {
     PmenuSel     = { fg = p.fg2, bg = p.bg_sel },
     StatusLine   = { fg = p.ui_status, bg = p.bg_ui },
     StatusLineNC = { fg = p.fg_statusnc, bg = p.bg_ui },
-    TabLine      = { fg = p.fg_dim, bg = p.bg_ui, underline = true },
-    TabLineFill  = { fg = p.fg_dim, bg = p.bg_tabfill, underline = true },
-    TabLineSel   = { fg = p.fg_dim, bg = p.bg_tabs, underline = true },
+    TabLine      = { fg = p.fg_dim, bg = p.bg_ui },
+    TabLineFill  = { fg = p.fg_dim, bg = p.bg_tabfill },
+    TabLineSel   = { fg = p.fg_dim, bg = p.bg_tabs },
     VertSplit    = { fg = p.ui_border, bg = p.bg_ui },
     WinSeparator = { link = "VertSplit" },
     Search       = { fg = p.fg0, bg = p.bg_search },
@@ -55,8 +55,8 @@ local groups = {
     MatchParen   = { bg = p.bg_match },
     htmlH1       = { fg = p.title },
     htmlH2       = { fg = p.fg_h2 },
-    htmlH3       = { fg = p.fg2, underline = true },
-    htmlH4       = { fg = p.fg3, underline = true },
+    htmlH3       = { fg = p.fg2 },
+    htmlH4       = { fg = p.fg3 },
     htmlH5       = { fg = p.fg3 },
     htmlH6       = { fg = p.fg4 },
   },
@@ -90,6 +90,7 @@ local bold_underline_groups = {
   "Function", "TabLine", "TabLineFill", "TabLineSel", "Title", "Todo",
   "htmlH3", "htmlH4",
 }
+local underline_groups = {} -- left empty
 
 return {
   setup = function()
@@ -101,6 +102,13 @@ return {
         if vim.tbl_contains(bold_underline_groups, name) then
           attrs.bold = true
           attrs.underline = true
+        end
+        if vim.tbl_contains(underline_groups, name) then
+          attrs.underline = true
+        end
+        -- Force no italic on tabs (LazyVim bufferline default)
+        if name:match("^TabLine") then
+          attrs.italic = false
         end
         hl(0, name, attrs)
       end

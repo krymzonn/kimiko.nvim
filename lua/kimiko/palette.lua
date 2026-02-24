@@ -38,12 +38,10 @@ M.palette = {
   ui_border   = "#6c6c6c", -- VertSplit, WinSeparator
   ui_menu     = "#eeeeee", -- Pmenu, PmenuSel, htmlH3
   ui_status   = "#f8d1aa",
-  --ui_nontext_fg = "#5f87af", -- NonText, SpecialKey
   bg_search   = "#005187", -- Search
   bg_add      = "#004406", -- DiffAdd
   bg_chg      = "#232345", -- DiffChange
   bg_del      = "#663230", -- DiffDelete
-  -- UI / TAB / SEARCH / DIFF (from original vim)
   ui_nontext  = "#5f87af", -- NonText, SpecialKey
   fg_statusnc = "#fedece", -- StatusLineNC
   bg_tabfill  = "#4e4e52", -- TabLineFill

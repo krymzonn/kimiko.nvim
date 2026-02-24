@@ -3,7 +3,7 @@ local p = require("kimiko.palette").palette
 
 local groups = {
   base = {
-    Normal       = { fg = p.fg1, bg = p.bg1 },
+    Normal       = { fg = p.fg1 },
     LineNr       = { fg = p.line },
     CursorLine   = { bg = p.bg1 },
     CursorColumn = { bg = p.bg2 },
@@ -99,12 +99,19 @@ local bold_underline_groups = {
   "htmlH3", "htmlH4",
 }
 local underline_groups = {} -- left empty
+local transparent_groups = {
+  "Normal", "NormalNC", "NonText", "SpecialKey", "SignColumn", "FoldColumn",
+  "MsgArea", "EndOfBuffer", "ModeMsg", "MoreMsg", "LineNr", "CursorLineNr",
+  "LineNrAbove", "LineNrBelow", "WinBar", "WinBarNC", "StatusLineNC",
+  "TabLine", "TabLineFill", "TabLineSel", "VertSplit", "WinSeparator",
+  "Pmenu", "PmenuSel", -- add floats later
+}
 
 local function setup(opts)
   for _, tbl in pairs(groups) do
     for name, def in pairs(tbl) do
       local attrs = vim.deepcopy(def or {}) -- prevent mutation
-      if opts.transparent and attrs.bg and attrs.bg ~= "NONE" then
+      if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
         attrs.bg = "NONE"
       end
       if vim.tbl_contains(bold_groups, name) then

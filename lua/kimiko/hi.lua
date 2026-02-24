@@ -100,26 +100,29 @@ local bold_underline_groups = {
 }
 local underline_groups = {} -- left empty
 
-return {
-  setup = function()
-    for _, tbl in pairs(groups) do
-      for name, attrs in pairs(tbl) do
-        if vim.tbl_contains(bold_groups, name) then
-          attrs.bold = true
-        end
-        if vim.tbl_contains(bold_underline_groups, name) then
-          attrs.bold = true
-          attrs.underline = true
-        end
-        if vim.tbl_contains(underline_groups, name) then
-          attrs.underline = true
-        end
-        -- Force no italic on tabs (LazyVim bufferline default)
-        if name:match("^TabLine") or name:match("^BufferLine") then
-          attrs.italic = false
-        end
-        hl(0, name, attrs)
+local function setup(opts)
+  for _, tbl in pairs(groups) do
+    for name, def in pairs(tbl) do
+      local attrs = vim.deepcopy(def or {}) -- prevent mutation
+      if opts.transparent and attrs.bg and attrs.bg ~= "NONE" then
+        attrs.bg = "NONE"
       end
+      if vim.tbl_contains(bold_groups, name) then
+        attrs.bold = true
+      end
+      if vim.tbl_contains(bold_underline_groups, name) then
+        attrs.bold = true
+        attrs.underline = true
+      end
+      if vim.tbl_contains(underline_groups, name) then
+        attrs.underline = true
+      end
+      if name:match("^TabLine") or name:match("^BufferLine") then
+        attrs.italic = false
+      end
+      hl(0, name, attrs)
     end
-  end,
-}
+  end
+end
+
+return { setup = setup }

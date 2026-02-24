@@ -48,7 +48,6 @@ local groups = {
     TabLineFill  = { fg = p.fg_dim, bg = p.bg_tabfill },
     TabLineSel   = { fg = p.fg_dim, bg = p.bg_tabs },
     VertSplit    = { fg = p.ui_border, bg = p.bg_ui },
-    WinSeparator = { link = "VertSplit" },
     Search       = { fg = p.fg0, bg = p.bg_search },
     IncSearch    = { fg = p.fg_inc, bg = p.bg_inc },
     Visual       = { bg = p.bg_sel },
@@ -66,6 +65,14 @@ local groups = {
     DiffDelete = { bg = p.bg_del },
     DiffText   = { bg = p.bg_dtext },
   },
+  bufferline = {
+    BufferLineFill           = { bg = p.bg_ui },
+    BufferLineBackground     = { fg = p.fg_dim, bg = p.bg_ui },
+    BufferLineBuffer         = { fg = p.fg_dim, bg = p.bg_ui },
+    BufferLineBufferSelected = { fg = p.ui_status, bg = p.bg_ui },
+    BufferLineTab            = { fg = p.fg_dim, bg = p.bg_ui },
+    BufferLineTabSelected    = { fg = p.ui_status, bg = p.bg_ui },
+  },
   plugins = {
     DiagnosticError    = { fg = p.err },
     DiagnosticWarn     = { fg = p.warn },
@@ -78,6 +85,7 @@ local groups = {
     htmlTag      = { link = "htmlTagName" },
     htmlEndTag   = { link = "htmlSpecialTagName" },
     markdownCode = { link = "Number" },
+    WinSeparator = { link = "VertSplit" },
   },
 }
 
@@ -107,7 +115,7 @@ return {
           attrs.underline = true
         end
         -- Force no italic on tabs (LazyVim bufferline default)
-        if name:match("^TabLine") then
+        if name:match("^TabLine") or name:match("^BufferLine") then
           attrs.italic = false
         end
         hl(0, name, attrs)

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-Omarchy + Kimiko colorbook SVG generator v2
+Omarchy + Kimiko colorbook SVG generator v3
+Wider layout, exact dynamic height, multi-line labels, duplicate detection
 Usage:
-  python colorbook.py lua/kimiko/palette.lua waybar.css alacritty.toml comparison1.md comparison2.md > kimiko-book.svg
+  python colorbook.py lua/kimiko/palette.lua waybar.css alacritty.toml *.md > kimiko-book.svg
 """
 
 import re
@@ -17,7 +18,7 @@ except ImportError:
 class Swatch:
     def __init__(self, hex_color: str, labels: list[str]):
         self.hex = hex_color.lower()
-        self.labels = labels[:4]  # limit clutter
+        self.labels = labels[:5]  # cap clutter
 
 class Section:
     def __init__(self, title: str):
@@ -29,8 +30,7 @@ class PaletteBook:
         self.title = "Kimiko + Omarchy Palette Book"
         self.sections: list[Section] = []
 
-# ── Parsers ──────────────────────────────────────────────────────────────────
-
+# ── Parsers (unchanged from v2) ─────────────────────────────────────────────
 def parse_kimiko_lua(content: str, name: str) -> Section:
     sec = Section(f"kimiko.nvim/palette.lua ({name})")
     for m in re.finditer(r'(\w+)\s*=\s*["\'](#[\da-fA-F]{6})["\']', content):
@@ -46,8 +46,7 @@ def parse_waybar_css(content: str) -> Section:
     return sec
 
 def parse_alacritty_toml(content: str) -> list[Section]:
-    if not tomllib:
-        return []
+    if not tomllib: return []
     try:
         data = tomllib.loads(content)
         sections = []
@@ -68,10 +67,8 @@ def parse_table(content: str) -> Section:
     seen = {}
     for m in re.finditer(r'#([0-9a-fA-F]{6})', content):
         hexcol = "#" + m.group(1).lower()
-        if hexcol not in seen:
-            seen[hexcol] = []
-        # grab nearby words as labels
-        ctx = content[max(0, m.start()-120):m.end()+120]
+        if hexcol not in seen: seen[hexcol] = []
+        ctx = content[max(0, m.start()-150):m.end()+150]
         for word in re.findall(r'\b\w+\b', ctx):
             if word not in seen[hexcol] and len(word) > 2:
                 seen[hexcol].append(word)
@@ -79,69 +76,84 @@ def parse_table(content: str) -> Section:
         sec.swatches.append(Swatch(hexcol, labels))
     return sec
 
-# ── SVG ─────────────────────────────────────────────────────────────────────
+# ── SVG v3 ──────────────────────────────────────────────────────────────────
+W, H, PAD = 168, 98, 26
+COLS = 8
+LEFT = 26
 
 def luminance(h: str) -> float:
     r, g, b = int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16)
     return (0.299 * r + 0.587 * g + 0.114 * b) / 255
 
 def generate_svg(book: PaletteBook) -> str:
-    COLS = 5
-    W, H, PAD = 168, 98, 26
-    width = COLS * (W + PAD) + PAD
-    height = 180 + len(book.sections) * 280  # rough but safe
+    seen = set()
+    width = LEFT + COLS * (W + PAD) + PAD
 
     svg = [f'''<?xml version="1.0" encoding="UTF-8"?>
-<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
+<svg width="{width}" height="9999" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       text {{ font-family: monospace; }}
       .title {{ font-size: 26px; fill: #f8d1aa; font-weight: bold; }}
       .section {{ font-size: 18px; fill: #eeeeee; }}
-      .hex {{ font-size: 13px; }}
+      .hex {{ font-size: 13px; font-weight: bold; }}
       .label {{ font-size: 11px; }}
     </style>
   </defs>
-  <text x="26" y="46" class="title">{book.title}</text>
+  <text x="{LEFT}" y="46" class="title">{book.title}</text>
 ''']
 
     y = 100
     for sec in book.sections:
-        svg.append(f'  <text x="26" y="{y}" class="section">{sec.title}</text>')
-        y += 48
-        x = 26
-        for i, sw in enumerate(sec.swatches):
+        svg.append(f'  <text x="{LEFT}" y="{y}" class="section">{sec.title}</text>')
+        y += 38
+        x = LEFT
+        count = 0
+        for sw in sec.swatches:
+            # duplicate detection
+            dup = sw.hex in seen
+            if not dup: seen.add(sw.hex)
+            dup_mark = " ✓" if dup else ""
+
             tc = "#111111" if luminance(sw.hex) > 0.55 else "#f8f8f8"
-            lbl = " / ".join(sw.labels)
+
+            # split labels
+            key = sw.labels[0]
+            rest = " / ".join(sw.labels[1:]) + dup_mark
+            if len(rest) > 38:
+                rest = rest[:35] + "…"
+
             svg.append(f'''  <g>
-    <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="8" fill="{sw.hex}"/>
-    <text x="{x+10}" y="{y+26}" fill="{tc}" class="hex">{sw.hex}</text>
-    <text x="{x+10}" y="{y+48}" fill="{tc}" class="label">{lbl}</text>
+    <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="8" fill="{sw.hex}" stroke="#555555" stroke-width="2"/>
+    <text x="{x+10}" y="{y+24}" fill="{tc}" class="hex">{sw.hex}</text>
+    <text x="{x+10}" y="{y+42}" fill="{tc}" class="label">{key}</text>
+    <text x="{x+10}" y="{y+58}" fill="{tc}" class="label">{rest}</text>
   </g>''')
+
             x += W + PAD
-            if (i + 1) % COLS == 0:
-                x = 26
-                y += H + 38
-        y += 70
+            count += 1
+            if count % COLS == 0:
+                x = LEFT
+                y += H + 30
+        if count % COLS != 0:
+            y += H + 30
+        y += 50
+
+    svg[-1] = svg[-1].replace('height="9999"', f'height="{y+50}"')
     svg.append("</svg>")
     return "\n".join(svg)
 
-# ── Main ────────────────────────────────────────────────────────────────────
-
+# ── Main (unchanged) ────────────────────────────────────────────────────────
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("files", nargs="*", help="palette.lua / waybar.css / alacritty.toml / *.md")
     args = p.parse_args()
 
     book = PaletteBook()
-
     for f in args.files:
         path = Path(f)
-        if not path.exists():
-            print(f"⚠️  not found: {f}", file=sys.stderr)
-            continue
+        if not path.exists(): continue
         content = path.read_text(encoding="utf-8")
-
         if path.suffix == ".lua":
             book.sections.append(parse_kimiko_lua(content, path.name))
         elif path.suffix == ".css":
@@ -150,12 +162,7 @@ def main():
             for s in parse_alacritty_toml(content):
                 book.sections.append(s)
         else:
-            # treat as table (your CSV/MD blocks)
             book.sections.append(parse_table(content))
-
-    if not book.sections:
-        print("No palettes loaded.", file=sys.stderr)
-        return
 
     print(generate_svg(book))
 

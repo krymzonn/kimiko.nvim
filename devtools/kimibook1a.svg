@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="980" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: monospace; font-size: 13px; }
+      .header { font-size: 18px; font-weight: bold; fill: #f8d1aa; }
+      .hex { font-size: 12px; }
+      .name { font-size: 11px; }
+    </style>
+  </defs>
+
+  <text x="20" y="50" class="header">Backgrounds</text>
+  <g>
+    <rect x="20" y="80" width="140" height="90" fill="#080808" rx="4" />
+    <text x="30" y="105" fill="#f8f8f8" class="hex">#080808</text>
+    <text x="30" y="125" fill="#f8f8f8" class="name">bg0</text>
+    <text x="30" y="145" fill="#f8f8f8" class="name">Global dark bg</text>
+  </g>
+  <g>
+    <rect x="180" y="80" width="140" height="90" fill="#1c1c1c" rx="4" />
+    <text x="190" y="105" fill="#f8f8f8" class="hex">#1c1c1c</text>
+    <text x="190" y="125" fill="#f8f8f8" class="name">bg1</text>
+    <text x="190" y="145" fill="#f8f8f8" class="name">Main bg / NeoTree</text>
+  </g>
+  <g>
+    <rect x="340" y="80" width="140" height="90" fill="#262626" rx="4" />
+    <text x="350" y="105" fill="#f8f8f8" class="hex">#262626</text>
+    <text x="350" y="125" fill="#f8f8f8" class="name">bg2</text>
+    <text x="350" y="145" fill="#f8f8f8" class="name">CursorLine / Pmenu</text>
+  </g>
+  <g>
+    <rect x="500" y="80" width="140" height="90" fill="#323030" rx="4" />
+    <text x="510" y="105" fill="#f8f8f8" class="hex">#323030</text>
+    <text x="510" y="125" fill="#f8f8f8" class="name">bg3</text>
+    <text x="510" y="145" fill="#f8f8f8" class="name">Pmenu / deeper UI</text>
+  </g>
+  <g>
+    <rect x="660" y="80" width="140" height="90" fill="#3a3a3a" rx="4" />
+    <text x="670" y="105" fill="#f8f8f8" class="hex">#3a3a3a</text>
+    <text x="670" y="125" fill="#f8f8f8" class="name">bg_ui</text>
+    <text x="670" y="145" fill="#f8f8f8" class="name">StatusLine / TabLine / WinBar</text>
+  </g>
+  <g>
+    <rect x="820" y="80" width="140" height="90" fill="#005f5f" rx="4" />
+    <text x="830" y="105" fill="#f8f8f8" class="hex">#005f5f</text>
+    <text x="830" y="125" fill="#f8f8f8" class="name">bg_sel</text>
+    <text x="830" y="145" fill="#f8f8f8" class="name">Visual / selection</text>
+  </g>
+  <g>
+    <rect x="20" y="200" width="140" height="90" fill="#005187" rx="4" />
+    <text x="30" y="225" fill="#f8f8f8" class="hex">#005187</text>
+    <text x="30" y="245" fill="#f8f8f8" class="name">bg_search</text>
+    <text x="30" y="265" fill="#f8f8f8" class="name">Search bg</text>
+  </g>
+  <g>
+    <rect x="180" y="200" width="140" height="90" fill="#004406" rx="4" />
+    <text x="190" y="225" fill="#f8f8f8" class="hex">#004406</text>
+    <text x="190" y="245" fill="#f8f8f8" class="name">bg_add</text>
+    <text x="190" y="265" fill="#f8f8f8" class="name">DiffAdd</text>
+  </g>
+  <g>
+    <rect x="340" y="200" width="140" height="90" fill="#232345" rx="4" />
+    <text x="350" y="225" fill="#f8f8f8" class="hex">#232345</text>
+    <text x="350" y="245" fill="#f8f8f8" class="name">bg_chg</text>
+    <text x="350" y="265" fill="#f8f8f8" class="name">DiffChange</text>
+  </g>
+  <g>
+    <rect x="500" y="200" width="140" height="90" fill="#663230" rx="4" />
+    <text x="510" y="225" fill="#f8f8f8" class="hex">#663230</text>
+    <text x="510" y="245" fill="#f8f8f8" class="name">bg_del</text>
+    <text x="510" y="265" fill="#f8f8f8" class="name">DiffDelete</text>
+  </g>
+  <g>
+    <rect x="660" y="200" width="140" height="90" fill="#343466" rx="4" />
+    <text x="670" y="225" fill="#f8f8f8" class="hex">#343466</text>
+    <text x="670" y="245" fill="#f8f8f8" class="name">bg_dtext</text>
+    <text x="670" y="265" fill="#f8f8f8" class="name">DiffText</text>
+  </g>
+  <g>
+    <rect x="820" y="200" width="140" height="90" fill="#4e4e52" rx="4" />
+    <text x="830" y="225" fill="#f8f8f8" class="hex">#4e4e52</text>
+    <text x="830" y="245" fill="#f8f8f8" class="name">bg_tabfill</text>
+    <text x="830" y="265" fill="#f8f8f8" class="name">TabLineFill</text>
+  </g>
+  <g>
+    <rect x="20" y="320" width="140" height="90" fill="#00875f" rx="4" />
+    <text x="30" y="345" fill="#f8f8f8" class="hex">#00875f</text>
+    <text x="30" y="365" fill="#f8f8f8" class="name">bg_tabs</text>
+    <text x="30" y="385" fill="#f8f8f8" class="name">TabLineSel / active tab</text>
+  </g>
+  <g>
+    <rect x="180" y="320" width="140" height="90" fill="#8aff04" rx="4" />
+    <text x="190" y="345" fill="#111111" class="hex">#8aff04</text>
+    <text x="190" y="365" fill="#111111" class="name">bg_inc</text>
+    <text x="190" y="385" fill="#111111" class="name">IncSearch bg</text>
+  </g>
+  <g>
+    <rect x="340" y="320" width="140" height="90" fill="#005f00" rx="4" />
+    <text x="350" y="345" fill="#f8f8f8" class="hex">#005f00</text>
+    <text x="350" y="365" fill="#f8f8f8" class="name">bg_match</text>
+    <text x="350" y="385" fill="#f8f8f8" class="name">MatchParen</text>
+  </g>
+  <text x="20" y="390" class="header">Text &amp; Foregrounds</text>
+  <g>
+    <rect x="20" y="420" width="140" height="90" fill="#ffffff" rx="4" />
+    <text x="30" y="445" fill="#111111" class="hex">#ffffff</text>
+    <text x="30" y="465" fill="#111111" class="name">fg0</text>
+    <text x="30" y="485" fill="#111111" class="name">Pure white text</text>
+  </g>
+  <g>
+    <rect x="180" y="420" width="140" height="90" fill="#bad094" rx="4" />
+    <text x="190" y="445" fill="#111111" class="hex">#bad094</text>
+    <text x="190" y="465" fill="#111111" class="name">fg1</text>
+    <text x="190" y="485" fill="#111111" class="name">Primary text</text>
+  </g>
+  <g>
+    <rect x="340" y="420" width="140" height="90" fill="#eeeeee" rx="4" />
+    <text x="350" y="445" fill="#111111" class="hex">#eeeeee</text>
+    <text x="350" y="465" fill="#111111" class="name">fg2</text>
+    <text x="350" y="485" fill="#111111" class="name">Bright text</text>
+  </g>
+  <g>
+    <rect x="500" y="420" width="140" height="90" fill="#bcbcbc" rx="4" />
+    <text x="510" y="445" fill="#111111" class="hex">#bcbcbc</text>
+    <text x="510" y="465" fill="#111111" class="name">fg3</text>
+    <text x="510" y="485" fill="#111111" class="name">Dim text</text>
+  </g>
+  <g>
+    <rect x="660" y="420" width="140" height="90" fill="#d0d0d0" rx="4" />
+    <text x="670" y="445" fill="#111111" class="hex">#d0d0d0</text>
+    <text x="670" y="465" fill="#111111" class="name">fg4</text>
+    <text x="670" y="485" fill="#111111" class="name">Secondary text</text>
+  </g>
+  <g>
+    <rect x="820" y="420" width="140" height="90" fill="#bfbebc" rx="4" />
+    <text x="830" y="445" fill="#111111" class="hex">#bfbebc</text>
+    <text x="830" y="465" fill="#111111" class="name">line</text>
+    <text x="830" y="485" fill="#111111" class="name">LineNr</text>
+  </g>
+  <g>
+    <rect x="20" y="540" width="140" height="90" fill="#3a3a3a" rx="4" />
+    <text x="30" y="565" fill="#f8f8f8" class="hex">#3a3a3a</text>
+    <text x="30" y="585" fill="#f8f8f8" class="name">fg_dim</text>
+    <text x="30" y="605" fill="#f8f8f8" class="name">Dim UI text / inactive</text>
+  </g>
+  <g>
+    <rect x="180" y="540" width="140" height="90" fill="#aed7d7" rx="4" />
+    <text x="190" y="565" fill="#111111" class="hex">#aed7d7</text>
+    <text x="190" y="585" fill="#111111" class="name">fgc</text>
+    <text x="190" y="605" fill="#111111" class="name">Comments</text>
+  </g>
+  <g>
+    <rect x="340" y="540" width="140" height="90" fill="#dfefff" rx="4" />
+    <text x="350" y="565" fill="#111111" class="hex">#dfefff</text>
+    <text x="350" y="585" fill="#111111" class="name">fg_sel</text>
+    <text x="350" y="605" fill="#111111" class="name">Selected text</text>
+  </g>
+  <g>
+    <rect x="500" y="540" width="140" height="90" fill="#fedece" rx="4" />
+    <text x="510" y="565" fill="#111111" class="hex">#fedece</text>
+    <text x="510" y="585" fill="#111111" class="name">fg_statusnc</text>
+    <text x="510" y="605" fill="#111111" class="name">StatusLineNC</text>
+  </g>
+  <g>
+    <rect x="660" y="540" width="140" height="90" fill="#670044" rx="4" />
+    <text x="670" y="565" fill="#f8f8f8" class="hex">#670044</text>
+    <text x="670" y="585" fill="#f8f8f8" class="name">fg_inc</text>
+    <text x="670" y="605" fill="#f8f8f8" class="name">IncSearch fg</text>
+  </g>
+  <g>
+    <rect x="820" y="540" width="140" height="90" fill="#ffdfdf" rx="4" />
+    <text x="830" y="565" fill="#111111" class="hex">#ffdfdf</text>
+    <text x="830" y="585" fill="#111111" class="name">fg_h2</text>
+    <text x="830" y="605" fill="#111111" class="name">htmlH2</text>
+  </g>
+  <text x="20" y="730" class="header">Syntax Accents</text>
+  <g>
+    <rect x="20" y="760" width="140" height="90" fill="#ff005f" rx="4" />
+    <text x="30" y="785" fill="#f8f8f8" class="hex">#ff005f</text>
+    <text x="30" y="805" fill="#f8f8f8" class="name">err</text>
+    <text x="30" y="825" fill="#f8f8f8" class="name">Error / DiagnosticError</text>
+  </g>
+  <g>
+    <rect x="180" y="760" width="140" height="90" fill="#fa9903" rx="4" />
+    <text x="190" y="785" fill="#111111" class="hex">#fa9903</text>
+    <text x="190" y="805" fill="#111111" class="name">warn</text>
+    <text x="190" y="825" fill="#111111" class="name">Warning</text>
+  </g>
+  <g>
+    <rect x="340" y="760" width="140" height="90" fill="#87ffaf" rx="4" />
+    <text x="350" y="785" fill="#111111" class="hex">#87ffaf</text>
+    <text x="350" y="805" fill="#111111" class="name">succ</text>
+    <text x="350" y="825" fill="#111111" class="name">Success / DiagnosticOK</text>
+  </g>
+  <g>
+    <rect x="500" y="760" width="140" height="90" fill="#5fff5f" rx="4" />
+    <text x="510" y="785" fill="#111111" class="hex">#5fff5f</text>
+    <text x="510" y="805" fill="#111111" class="name">type</text>
+    <text x="510" y="825" fill="#111111" class="name">Types</text>
+  </g>
+  <g>
+    <rect x="660" y="760" width="140" height="90" fill="#ffd65e" rx="4" />
+    <text x="670" y="785" fill="#111111" class="hex">#ffd65e</text>
+    <text x="670" y="805" fill="#111111" class="name">kw</text>
+    <text x="670" y="825" fill="#111111" class="name">Keywords</text>
+  </g>
+  <g>
+    <rect x="820" y="760" width="140" height="90" fill="#ff4f81" rx="4" />
+    <text x="830" y="785" fill="#111111" class="hex">#ff4f81</text>
+    <text x="830" y="805" fill="#111111" class="name">op</text>
+    <text x="830" y="825" fill="#111111" class="name">Operators</text>
+  </g>
+  <g>
+    <rect x="20" y="880" width="140" height="90" fill="#ffafff" rx="4" />
+    <text x="30" y="905" fill="#111111" class="hex">#ffafff</text>
+    <text x="30" y="925" fill="#111111" class="name">str</text>
+    <text x="30" y="945" fill="#111111" class="name">Strings</text>
+  </g>
+  <g>
+    <rect x="180" y="880" width="140" height="90" fill="#afaffe" rx="4" />
+    <text x="190" y="905" fill="#111111" class="hex">#afaffe</text>
+    <text x="190" y="925" fill="#111111" class="name">num</text>
+    <text x="190" y="945" fill="#111111" class="name">Numbers</text>
+  </g>
+  <g>
+    <rect x="340" y="880" width="140" height="90" fill="#dfefff" rx="4" />
+    <text x="350" y="905" fill="#111111" class="hex">#dfefff</text>
+    <text x="350" y="925" fill="#111111" class="name">fn</text>
+    <text x="350" y="945" fill="#111111" class="name">Functions</text>
+  </g>
+  <g>
+    <rect x="500" y="880" width="140" height="90" fill="#ff87af" rx="4" />
+    <text x="510" y="905" fill="#111111" class="hex">#ff87af</text>
+    <text x="510" y="925" fill="#111111" class="name">title</text>
+    <text x="510" y="945" fill="#111111" class="name">Headings / titles</text>
+  </g>
+  <text x="20" y="950" class="header">UI Elements</text>
+  <g>
+    <rect x="20" y="980" width="140" height="90" fill="#3a3a3a" rx="4" />
+    <text x="30" y="1005" fill="#f8f8f8" class="hex">#3a3a3a</text>
+    <text x="30" y="1025" fill="#f8f8f8" class="name">bg_ui</text>
+    <text x="30" y="1045" fill="#f8f8f8" class="name">StatusLine / TabLine / WinBar</text>
+  </g>
+  <g>
+    <rect x="180" y="980" width="140" height="90" fill="#005f5f" rx="4" />
+    <text x="190" y="1005" fill="#f8f8f8" class="hex">#005f5f</text>
+    <text x="190" y="1025" fill="#f8f8f8" class="name">bg_sel</text>
+    <text x="190" y="1045" fill="#f8f8f8" class="name">Visual / selection</text>
+  </g>
+  <g>
+    <rect x="340" y="980" width="140" height="90" fill="#dfefff" rx="4" />
+    <text x="350" y="1005" fill="#111111" class="hex">#dfefff</text>
+    <text x="350" y="1025" fill="#111111" class="name">fg_sel</text>
+    <text x="350" y="1045" fill="#111111" class="name">Selected text</text>
+  </g>
+  <g>
+    <rect x="500" y="980" width="140" height="90" fill="#6c6c6c" rx="4" />
+    <text x="510" y="1005" fill="#f8f8f8" class="hex">#6c6c6c</text>
+    <text x="510" y="1025" fill="#f8f8f8" class="name">ui_border</text>
+    <text x="510" y="1045" fill="#f8f8f8" class="name">VertSplit / borders</text>
+  </g>
+  <g>
+    <rect x="660" y="980" width="140" height="90" fill="#eeeeee" rx="4" />
+    <text x="670" y="1005" fill="#111111" class="hex">#eeeeee</text>
+    <text x="670" y="1025" fill="#111111" class="name">ui_menu</text>
+    <text x="670" y="1045" fill="#111111" class="name">Pmenu fg</text>
+  </g>
+  <g>
+    <rect x="820" y="980" width="140" height="90" fill="#f8d1aa" rx="4" />
+    <text x="830" y="1005" fill="#111111" class="hex">#f8d1aa</text>
+    <text x="830" y="1025" fill="#111111" class="name">ui_status</text>
+    <text x="830" y="1045" fill="#111111" class="name">StatusLine active / Omarchy letter</text>
+  </g>
+  <g>
+    <rect x="20" y="1100" width="140" height="90" fill="#5f87af" rx="4" />
+    <text x="30" y="1125" fill="#111111" class="hex">#5f87af</text>
+    <text x="30" y="1145" fill="#111111" class="name">ui_nontext</text>
+    <text x="30" y="1165" fill="#111111" class="name">NonText / concealed</text>
+  </g>
+  <text x="20" y="1170" class="header">Diff &amp; Search</text>
+  <g>
+    <rect x="20" y="1200" width="140" height="90" fill="#005187" rx="4" />
+    <text x="30" y="1225" fill="#f8f8f8" class="hex">#005187</text>
+    <text x="30" y="1245" fill="#f8f8f8" class="name">bg_search</text>
+    <text x="30" y="1265" fill="#f8f8f8" class="name">Search bg</text>
+  </g>
+  <g>
+    <rect x="180" y="1200" width="140" height="90" fill="#004406" rx="4" />
+    <text x="190" y="1225" fill="#f8f8f8" class="hex">#004406</text>
+    <text x="190" y="1245" fill="#f8f8f8" class="name">bg_add</text>
+    <text x="190" y="1265" fill="#f8f8f8" class="name">DiffAdd</text>
+  </g>
+  <g>
+    <rect x="340" y="1200" width="140" height="90" fill="#232345" rx="4" />
+    <text x="350" y="1225" fill="#f8f8f8" class="hex">#232345</text>
+    <text x="350" y="1245" fill="#f8f8f8" class="name">bg_chg</text>
+    <text x="350" y="1265" fill="#f8f8f8" class="name">DiffChange</text>
+  </g>
+  <g>
+    <rect x="500" y="1200" width="140" height="90" fill="#663230" rx="4" />
+    <text x="510" y="1225" fill="#f8f8f8" class="hex">#663230</text>
+    <text x="510" y="1245" fill="#f8f8f8" class="name">bg_del</text>
+    <text x="510" y="1265" fill="#f8f8f8" class="name">DiffDelete</text>
+  </g>
+  <g>
+    <rect x="660" y="1200" width="140" height="90" fill="#343466" rx="4" />
+    <text x="670" y="1225" fill="#f8f8f8" class="hex">#343466</text>
+    <text x="670" y="1245" fill="#f8f8f8" class="name">bg_dtext</text>
+    <text x="670" y="1265" fill="#f8f8f8" class="name">DiffText</text>
+  </g>
+  <g>
+    <rect x="820" y="1200" width="140" height="90" fill="#4e4e52" rx="4" />
+    <text x="830" y="1225" fill="#f8f8f8" class="hex">#4e4e52</text>
+    <text x="830" y="1245" fill="#f8f8f8" class="name">bg_tabfill</text>
+    <text x="830" y="1265" fill="#f8f8f8" class="name">TabLineFill</text>
+  </g>
+  <g>
+    <rect x="20" y="1320" width="140" height="90" fill="#00875f" rx="4" />
+    <text x="30" y="1345" fill="#f8f8f8" class="hex">#00875f</text>
+    <text x="30" y="1365" fill="#f8f8f8" class="name">bg_tabs</text>
+    <text x="30" y="1385" fill="#f8f8f8" class="name">TabLineSel / active tab</text>
+  </g>
+  <g>
+    <rect x="180" y="1320" width="140" height="90" fill="#fedece" rx="4" />
+    <text x="190" y="1345" fill="#111111" class="hex">#fedece</text>
+    <text x="190" y="1365" fill="#111111" class="name">fg_statusnc</text>
+    <text x="190" y="1385" fill="#111111" class="name">StatusLineNC</text>
+  </g>
+  <g>
+    <rect x="340" y="1320" width="140" height="90" fill="#670044" rx="4" />
+    <text x="350" y="1345" fill="#f8f8f8" class="hex">#670044</text>
+    <text x="350" y="1365" fill="#f8f8f8" class="name">fg_inc</text>
+    <text x="350" y="1385" fill="#f8f8f8" class="name">IncSearch fg</text>
+  </g>
+  <g>
+    <rect x="500" y="1320" width="140" height="90" fill="#8aff04" rx="4" />
+    <text x="510" y="1345" fill="#111111" class="hex">#8aff04</text>
+    <text x="510" y="1365" fill="#111111" class="name">bg_inc</text>
+    <text x="510" y="1385" fill="#111111" class="name">IncSearch bg</text>
+  </g>
+  <g>
+    <rect x="660" y="1320" width="140" height="90" fill="#005f00" rx="4" />
+    <text x="670" y="1345" fill="#f8f8f8" class="hex">#005f00</text>
+    <text x="670" y="1365" fill="#f8f8f8" class="name">bg_match</text>
+    <text x="670" y="1385" fill="#f8f8f8" class="name">MatchParen</text>
+  </g>
+  <g>
+    <rect x="820" y="1320" width="140" height="90" fill="#ffdfdf" rx="4" />
+    <text x="830" y="1345" fill="#111111" class="hex">#ffdfdf</text>
+    <text x="830" y="1365" fill="#111111" class="name">fg_h2</text>
+    <text x="830" y="1385" fill="#111111" class="name">htmlH2</text>
+  </g>
+</svg>

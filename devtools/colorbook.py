@@ -74,11 +74,11 @@ def luminance(hexcolor: str) -> float:
 def svg_colorbook(palette: dict) -> str:
     groups = {
         "Backgrounds": [k for k in palette if k.startswith("bg")],
-        "Text & Foregrounds": [k for k in palette if k.startswith("fg") or k in ("line", "fgc")],
+        "Text &amp; Foregrounds": [k for k in palette if k.startswith("fg") or k in ("line", "fgc")],
         "Syntax Accents": ["err", "warn", "succ", "type", "kw", "op", "str", "num", "fn", "title"],
         "UI Elements": ["bg_ui", "bg_sel", "fg_sel", "ui_border", "ui_menu", "ui_status", "ui_nontext"],
-        "Diff & Search": ["bg_search", "bg_add", "bg_chg", "bg_del", "bg_dtext", "bg_tabfill", "bg_tabs",
-                          "fg_statusnc", "fg_inc", "bg_inc", "bg_match", "fg_h2"],
+        "Diff &amp; Search": ["bg_search", "bg_add", "bg_chg", "bg_del", "bg_dtext", "bg_tabfill", "bg_tabs",
+                              "fg_statusnc", "fg_inc", "bg_inc", "bg_match", "fg_h2"],
     }
 
     svg = [f'''<?xml version="1.0" encoding="UTF-8"?>
@@ -95,8 +95,7 @@ def svg_colorbook(palette: dict) -> str:
 
     y = 30
     for group_name, keys in groups.items():
-        if not keys:
-            continue
+        if not keys: continue
         svg.append(f'  <text x="{PADDING}" y="{y+20}" class="header">{group_name}</text>')
         y += HEADER_H
 

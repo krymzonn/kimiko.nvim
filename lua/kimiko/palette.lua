@@ -35,10 +35,9 @@ M.palette = {
   -- UI / TAB / SEARCH / DIFF
   active      = "#d1f85d", -- 'cypher', active window/element
   good        = "#5df85d", -- 'green' os theme
-  bg_sel      = "#005f5f", -- Visual
-  fg_sel      = "#dfefff", -- Function, Identifier
+  bg_sel      = "#005f5f", -- Visual -- TODO remove!
   ui_border   = "#6c6c6c", -- VertSplit, WinSeparator
-  ui_menu     = "#eeeeee", -- Pmenu, PmenuSel, htmlH3
+  ui_menu     = "#ee0000", -- Pmenu, PmenuSel, htmlH3 --remove!
   ui_status   = "#f8d1aa",
   bg_search   = "#005187", -- Search
   bg_add      = "#004406", -- DiffAdd

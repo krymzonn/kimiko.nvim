@@ -51,7 +51,7 @@ local groups = {
     ["@comment"]  = { link = "Comment" },
   },
   ui = {
-    Pmenu        = { fg = p.ui_menu, bg = p.bg3 },
+    Pmenu        = { fg = p.line, bg = p.bg2 },
     PmenuSel     = { fg = p.fg2, bg = p.bg_sel },
     StatusLine   = { fg = p.ui_status, bg = p.bg3 },
     StatusLineNC = { fg = p.fg_statusnc, bg = p.bg3 },
@@ -76,7 +76,7 @@ local groups = {
     DiagnosticError    = { fg = p.err },
     DiagnosticWarn     = { fg = p.warn },
     TelescopeBorder    = { fg = p.ui_border },
-    TelescopeSelection = { bg = p.bg_sel, fg = p.fg_sel },
+    TelescopeSelection = { bg = p.bg_search, fg = p.fn },
     WhichKey           = { fg = p.fg1 },
     NeoTreeNormal      = { fg = p.fg1, bg = p.bg1 },
   },

@@ -1,3 +1,6 @@
+local vim = vim
+--local opts = opts
+
 local hl = vim.api.nvim_set_hl
 local p = require("kimiko.palette").palette
 
@@ -72,36 +75,6 @@ local groups = {
     DiffDelete = { bg = p.bg_del },
     DiffText   = { bg = p.bg_dtext },
   },
-  bufferline = {
-    BufferLineBackground          = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineBuffer              = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineBufferSelected      = { fg = p.active, bg = p.bg2 },
-    BufferLineBufferVisible       = { fg = p.line, bg = p.bg2 },
-    BufferLineTab                 = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineTabSelected         = { fg = p.op, bg = p.bg2 },
-    BufferLineTabClose            = { fg = p.fg_inc, bg = p.bg2 },
-    BufferLineSeparator           = { fg = p.bg2, bg = p.bg2 },
-    BufferLineSeparatorSelected   = { fg = p.bg2, bg = p.bg2 },
-    BufferLineModified            = { fg = p.warn, bg = p.bg2 },
-    BufferLineModifiedSelected    = { fg = p.warn, bg = p.bg2 },
-    BufferLineDuplicate           = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineDuplicateSelected   = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineIndicatorSelected   = { fg = p.succ, bg = p.bg2 },
-    BufferLineCloseButton         = { fg = p.fg_inc, bg = p.bg2 },
-    BufferLineCloseButtonSelected = { fg = p.err, bg = p.bg2 },
-    BufferLineFill                = { fg = p.bg2, bg = p.bg2 }, -- invisible fill
-    BufferLinePick                = { fg = p.fg0, bg = p.bg2 },
-    BufferLinePickSelected        = { fg = p.fg0, bg = p.bg2 },
-    BufferLineError               = { fg = p.err, bg = p.bg2 },
-    BufferLineErrorDiagnostic     = { fg = p.err, bg = p.bg2 },
-    BufferLineWarning             = { fg = p.warn, bg = p.bg2 },
-    BufferLineWarningDiagnostic   = { fg = p.warn, bg = p.bg2 },
-    BufferLineInfo                = { fg = p.num, bg = p.bg2 },    -- subtle blue
-    BufferLineInfoDiagnostic      = { fg = p.num, bg = p.bg2 },
-    BufferLineHint                = { fg = p.fg_dim, bg = p.bg2 }, -- dim hint
-    BufferLineHintDiagnostic      = { fg = p.fg_dim, bg = p.bg2 },
-    BufferLineTruncMarker         = { fg = p.fg_dim, bg = p.bg2 }, -- subtle ...
-  },
   plugins = {
     DiagnosticError    = { fg = p.err },
     DiagnosticWarn     = { fg = p.warn },
@@ -137,7 +110,16 @@ local transparent_groups = {
   "Pmenu", "PmenuSel", -- add floats later
 }
 
+
+local plugins = {}
+plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
+
 local function setup(opts)
+  for _, defs in pairs(plugins) do
+    for group, attrs in pairs(defs) do
+      hl(0, group, attrs)
+    end
+  end
   for _, tbl in pairs(groups) do
     for name, def in pairs(tbl) do
       local attrs = vim.deepcopy(def or {}) -- prevent mutation

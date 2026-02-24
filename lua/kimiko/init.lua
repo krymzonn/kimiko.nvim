@@ -1,16 +1,15 @@
 local M = {}
 
 function M.setup(opts)
-	opts = opts or { transparent = true } -- e.g., { transparent = true }
-	vim.cmd.highlight("clear")
-	if vim.fn.exists("syntax_on") then
-		vim.cmd.syntax("reset")
-	end
-	vim.o.termguicolors = true
-	vim.g.colors_name = "kimiko"
+  opts = vim.tbl_deep_extend("force", { transparent = true }, opts or {})
+  vim.cmd.highlight("clear")
+  if vim.fn.exists("syntax_on") == 1 then
+    vim.cmd.syntax("reset")
+  end
+  vim.o.termguicolors = true
+  vim.g.colors_name = "kimiko"
 
-	-- Apply highlights
-	require("kimiko.hi").setup()
+  require("kimiko.hi").setup(opts)
 end
 
 return M

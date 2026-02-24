@@ -1,6 +1,3 @@
-local vim = vim
---local opts = opts
-
 local hl = vim.api.nvim_set_hl
 local p = require("kimiko.palette").palette
 
@@ -111,18 +108,10 @@ local transparent_groups = {
 }
 
 
-local plugins = {}
-plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
-
 local function setup(opts)
-  for _, defs in pairs(plugins) do
-    for group, attrs in pairs(defs) do
-      hl(0, group, attrs)
-    end
-  end
   for _, tbl in pairs(groups) do
     for name, def in pairs(tbl) do
-      local attrs = vim.deepcopy(def or {}) -- prevent mutation
+      local attrs = vim.deepcopy(def or {})
       if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
         attrs.bg = "NONE"
       end
@@ -140,6 +129,15 @@ local function setup(opts)
         attrs.italic = false
       end
       hl(0, name, attrs)
+    end
+  end
+
+  -- Plugins (inside setup for p/opts)
+  local plugins = {}
+  plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
+  for _, defs in pairs(plugins) do
+    for group, attrs in pairs(defs) do
+      hl(0, group, attrs)
     end
   end
 end

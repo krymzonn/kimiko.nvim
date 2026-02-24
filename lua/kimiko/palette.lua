@@ -17,7 +17,6 @@ M.palette = {
   fg4         = "#d0d0d0", -- htmlH6
   line        = "#bfbebc", -- LineNr
   fg_dim      = "#3a3a3a", -- ModeMsg, MoreMsg
-  fgc         = "#aed7d7", -- Comment
 
   -- ACCENT / SEMANTIC COLORS
   err         = "#ff005f",
@@ -30,9 +29,12 @@ M.palette = {
   num         = "#afaffe",
   fn          = "#dfefff", -- Function, Identifier
   title       = "#ff87af", -- Title, htmlH1
+  fgc         = "#aed7d7", -- Comment
+  fg_h2       = "#ffdfdf", -- htmlH2
 
   -- UI / TAB / SEARCH / DIFF
-  bg_ui       = "#3a3a3a", -- bg_VertSplit, bg_WinSeparator
+  active      = "#d1f85d", -- 'cypher', active window/element
+  good        = "#5df85d", -- 'green' os theme
   bg_sel      = "#005f5f", -- Visual
   fg_sel      = "#dfefff", -- Function, Identifier
   ui_border   = "#6c6c6c", -- VertSplit, WinSeparator
@@ -45,11 +47,10 @@ M.palette = {
   ui_nontext  = "#5f87af", -- NonText, SpecialKey
   fg_statusnc = "#fedece", -- StatusLineNC
   bg_tabfill  = "#4e4e52", -- TabLineFill
-  bg_tabs     = "#00875f", -- TabLineSel
+  bg_tabs     = "#00875f", -- TabLineSel --seems bad, remove?
   fg_inc      = "#670044", -- IncSearch
   bg_inc      = "#8aff04", -- IncSearch
   bg_match    = "#005f00", -- MatchParen
-  fg_h2       = "#ffdfdf", -- htmlH2
   bg_dtext    = "#343466", -- DiffText
 }
 

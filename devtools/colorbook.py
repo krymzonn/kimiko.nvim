@@ -1,125 +1,164 @@
 #!/usr/bin/env python3
 """
-kimiko colorbook SVG generator
+Omarchy + Kimiko colorbook SVG generator v2
 Usage:
-  python colorbook.py > kimiko.svg
-  # or edit the PALETTE dict below and re-run
+  python colorbook.py lua/kimiko/palette.lua waybar.css alacritty.toml comparison1.md comparison2.md > kimiko-book.svg
 """
 
-PALETTE = {
-    # Backgrounds
-    "bg0": ("#080808", "Global dark bg"),
-    "bg1": ("#1c1c1c", "Main bg / NeoTree"),
-    "bg2": ("#262626", "CursorLine / Pmenu"),
-    "bg3": ("#323030", "Pmenu / deeper UI"),
+import re
+import argparse
+import sys
+from pathlib import Path
+try:
+    import tomllib
+except ImportError:
+    tomllib = None
 
-    # Text / Foregrounds
-    "fg0": ("#ffffff", "Pure white text"),
-    "fg1": ("#bad094", "Primary text"),
-    "fg2": ("#eeeeee", "Bright text"),
-    "fg3": ("#bcbcbc", "Dim text"),
-    "fg4": ("#d0d0d0", "Secondary text"),
-    "line": ("#bfbebc", "LineNr"),
-    "fg_dim": ("#3a3a3a", "Dim UI text / inactive"),
-    "fgc": ("#aed7d7", "Comments"),
+class Swatch:
+    def __init__(self, hex_color: str, labels: list[str]):
+        self.hex = hex_color.lower()
+        self.labels = labels[:4]  # limit clutter
 
-    # Syntax Accents
-    "err": ("#ff005f", "Error / DiagnosticError"),
-    "warn": ("#fa9903", "Warning"),
-    "succ": ("#87ffaf", "Success / DiagnosticOK"),
-    "type": ("#5fff5f", "Types"),
-    "kw": ("#ffd65e", "Keywords"),
-    "op": ("#ff4f81", "Operators"),
-    "str": ("#ffafff", "Strings"),
-    "num": ("#afaffe", "Numbers"),
-    "fn": ("#dfefff", "Functions"),
-    "title": ("#ff87af", "Headings / titles"),
+class Section:
+    def __init__(self, title: str):
+        self.title = title
+        self.swatches: list[Swatch] = []
 
-    # UI Elements
-    "bg_ui": ("#3a3a3a", "StatusLine / TabLine / WinBar"),
-    "bg_sel": ("#005f5f", "Visual / selection"),
-    "fg_sel": ("#dfefff", "Selected text"),
-    "ui_border": ("#6c6c6c", "VertSplit / borders"),
-    "ui_menu": ("#eeeeee", "Pmenu fg"),
-    "ui_status": ("#f8d1aa", "StatusLine active / Omarchy letter"),
-    "ui_nontext": ("#5f87af", "NonText / concealed"),
+class PaletteBook:
+    def __init__(self):
+        self.title = "Kimiko + Omarchy Palette Book"
+        self.sections: list[Section] = []
 
-    # Special / Diff / Search
-    "bg_search": ("#005187", "Search bg"),
-    "bg_add": ("#004406", "DiffAdd"),
-    "bg_chg": ("#232345", "DiffChange"),
-    "bg_del": ("#663230", "DiffDelete"),
-    "bg_dtext": ("#343466", "DiffText"),
-    "bg_tabfill": ("#4e4e52", "TabLineFill"),
-    "bg_tabs": ("#00875f", "TabLineSel / active tab"),
-    "fg_statusnc": ("#fedece", "StatusLineNC"),
-    "fg_inc": ("#670044", "IncSearch fg"),
-    "bg_inc": ("#8aff04", "IncSearch bg"),
-    "bg_match": ("#005f00", "MatchParen"),
-    "fg_h2": ("#ffdfdf", "htmlH2"),
-}
+# ── Parsers ──────────────────────────────────────────────────────────────────
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Config
-SWATCH_W, SWATCH_H = 140, 90
-COLS = 6
-FONT = "monospace"
-HEADER_H = 50
-PADDING = 20
+def parse_kimiko_lua(content: str, name: str) -> Section:
+    sec = Section(f"kimiko.nvim/palette.lua ({name})")
+    for m in re.finditer(r'(\w+)\s*=\s*["\'](#[\da-fA-F]{6})["\']', content):
+        key, hexcol = m.groups()
+        sec.swatches.append(Swatch(hexcol, [key]))
+    return sec
 
-def luminance(hexcolor: str) -> float:
-    r, g, b = [int(hexcolor[i:i+2], 16) for i in (1, 3, 5)]
+def parse_waybar_css(content: str) -> Section:
+    sec = Section("Omarchy waybar.css")
+    for m in re.finditer(r'@define-color\s+(\w+)\s+(#[0-9a-fA-F]{6});', content):
+        key, hexcol = m.groups()
+        sec.swatches.append(Swatch(hexcol, [key]))
+    return sec
+
+def parse_alacritty_toml(content: str) -> list[Section]:
+    if not tomllib:
+        return []
+    try:
+        data = tomllib.loads(content)
+        sections = []
+        colors = data.get("colors", {})
+        for cat in ("primary", "normal", "bright", "selection"):
+            if cat in colors:
+                sec = Section(f"Alacritty {cat}")
+                for k, v in colors[cat].items():
+                    if isinstance(v, str) and v.startswith("#"):
+                        sec.swatches.append(Swatch(v, [k]))
+                sections.append(sec)
+        return sections
+    except Exception:
+        return []
+
+def parse_table(content: str) -> Section:
+    sec = Section("Comparison tables")
+    seen = {}
+    for m in re.finditer(r'#([0-9a-fA-F]{6})', content):
+        hexcol = "#" + m.group(1).lower()
+        if hexcol not in seen:
+            seen[hexcol] = []
+        # grab nearby words as labels
+        ctx = content[max(0, m.start()-120):m.end()+120]
+        for word in re.findall(r'\b\w+\b', ctx):
+            if word not in seen[hexcol] and len(word) > 2:
+                seen[hexcol].append(word)
+    for hexcol, labels in seen.items():
+        sec.swatches.append(Swatch(hexcol, labels))
+    return sec
+
+# ── SVG ─────────────────────────────────────────────────────────────────────
+
+def luminance(h: str) -> float:
+    r, g, b = int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16)
     return (0.299 * r + 0.587 * g + 0.114 * b) / 255
 
-def svg_colorbook(palette: dict) -> str:
-    groups = {
-        "Backgrounds": [k for k in palette if k.startswith("bg")],
-        "Text &amp; Foregrounds": [k for k in palette if k.startswith("fg") or k in ("line", "fgc")],
-        "Syntax Accents": ["err", "warn", "succ", "type", "kw", "op", "str", "num", "fn", "title"],
-        "UI Elements": ["bg_ui", "bg_sel", "fg_sel", "ui_border", "ui_menu", "ui_status", "ui_nontext"],
-        "Diff &amp; Search": ["bg_search", "bg_add", "bg_chg", "bg_del", "bg_dtext", "bg_tabfill", "bg_tabs",
-                              "fg_statusnc", "fg_inc", "bg_inc", "bg_match", "fg_h2"],
-    }
+def generate_svg(book: PaletteBook) -> str:
+    COLS = 5
+    W, H, PAD = 168, 98, 26
+    width = COLS * (W + PAD) + PAD
+    height = 180 + len(book.sections) * 280  # rough but safe
 
     svg = [f'''<?xml version="1.0" encoding="UTF-8"?>
-<svg width="{(SWATCH_W + PADDING) * COLS + PADDING}" height="1200" xmlns="http://www.w3.org/2000/svg">
+<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      text {{ font-family: {FONT}; font-size: 13px; }}
-      .header {{ font-size: 18px; font-weight: bold; fill: #f8d1aa; }}
-      .hex {{ font-size: 12px; }}
-      .name {{ font-size: 11px; }}
+      text {{ font-family: monospace; }}
+      .title {{ font-size: 26px; fill: #f8d1aa; font-weight: bold; }}
+      .section {{ font-size: 18px; fill: #eeeeee; }}
+      .hex {{ font-size: 13px; }}
+      .label {{ font-size: 11px; }}
     </style>
   </defs>
+  <text x="26" y="46" class="title">{book.title}</text>
 ''']
 
-    y = 30
-    for group_name, keys in groups.items():
-        if not keys: continue
-        svg.append(f'  <text x="{PADDING}" y="{y+20}" class="header">{group_name}</text>')
-        y += HEADER_H
-
-        x = PADDING
-        for i, key in enumerate(keys):
-            hexcol, usage = palette[key]
-            text_color = "#111111" if luminance(hexcol) > 0.5 else "#f8f8f8"
-
+    y = 100
+    for sec in book.sections:
+        svg.append(f'  <text x="26" y="{y}" class="section">{sec.title}</text>')
+        y += 48
+        x = 26
+        for i, sw in enumerate(sec.swatches):
+            tc = "#111111" if luminance(sw.hex) > 0.55 else "#f8f8f8"
+            lbl = " / ".join(sw.labels)
             svg.append(f'''  <g>
-    <rect x="{x}" y="{y}" width="{SWATCH_W}" height="{SWATCH_H}" fill="{hexcol}" rx="4" />
-    <text x="{x+10}" y="{y+25}" fill="{text_color}" class="hex">{hexcol}</text>
-    <text x="{x+10}" y="{y+45}" fill="{text_color}" class="name">{key}</text>
-    <text x="{x+10}" y="{y+65}" fill="{text_color}" class="name">{usage}</text>
+    <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="8" fill="{sw.hex}"/>
+    <text x="{x+10}" y="{y+26}" fill="{tc}" class="hex">{sw.hex}</text>
+    <text x="{x+10}" y="{y+48}" fill="{tc}" class="label">{lbl}</text>
   </g>''')
-
-            x += SWATCH_W + PADDING
+            x += W + PAD
             if (i + 1) % COLS == 0:
-                x = PADDING
-                y += SWATCH_H + 30
-        y += 50
-
+                x = 26
+                y += H + 38
+        y += 70
     svg.append("</svg>")
     return "\n".join(svg)
 
+# ── Main ────────────────────────────────────────────────────────────────────
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("files", nargs="*", help="palette.lua / waybar.css / alacritty.toml / *.md")
+    args = p.parse_args()
+
+    book = PaletteBook()
+
+    for f in args.files:
+        path = Path(f)
+        if not path.exists():
+            print(f"⚠️  not found: {f}", file=sys.stderr)
+            continue
+        content = path.read_text(encoding="utf-8")
+
+        if path.suffix == ".lua":
+            book.sections.append(parse_kimiko_lua(content, path.name))
+        elif path.suffix == ".css":
+            book.sections.append(parse_waybar_css(content))
+        elif path.suffix == ".toml":
+            for s in parse_alacritty_toml(content):
+                book.sections.append(s)
+        else:
+            # treat as table (your CSV/MD blocks)
+            book.sections.append(parse_table(content))
+
+    if not book.sections:
+        print("No palettes loaded.", file=sys.stderr)
+        return
+
+    print(generate_svg(book))
+
 if __name__ == "__main__":
-    print(svg_colorbook(PALETTE))
+    main()
 

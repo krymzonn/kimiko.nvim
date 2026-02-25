@@ -3,9 +3,10 @@ local M = {}
 
 M.palette = {
   -- CORE BG SHADES (dark → light)
+  b00        = "#000000",
   bg0        = "#080808", -- ColorColumn
-  bg1        = "#1c1c1c", -- CursorLine
-  bg2        = "#262626", -- CursorColumn
+  bg1        = "#0d1111", -- CursorLine
+  bg2        = "#1d2121", -- CursorColumn
   bg3        = "#323030",
   bg4        = "#4e4e52",
 
@@ -22,12 +23,12 @@ M.palette = {
   fg_see     = "#fedece", -- StatusLineNC
 
   -- ACCENT / SEMANTIC COLORS
-  err        = "#ff005f",
+  err        = "#f8015d",
   warn       = "#fa9903", -- Conditional
-  succ       = "#87ffaf",
-  type       = "#5fff5f",
-  kw         = "#ffd65e", -- Statement
-  op         = "#ff4f81",
+  fine       = "#b2e878", -- th mint
+  type       = "#5df85d", -- th 'green'
+  kw         = "#f8d15d", -- Statement
+  op         = "#f85d84",
   str        = "#f8aaf8",
   num        = "#aaaaf8",
   fn         = "#d1f8f8", -- Function, Identifier
@@ -37,15 +38,13 @@ M.palette = {
 
   -- UI / TAB / SEARCH / DIFF
   active     = "#d1f85d", -- 'cypher', active window/element
-  good       = "#5df85d", -- 'green' os theme
   dimb       = "#aad1d1", -- dim os txt
   bg_search  = "#005187", -- Search
   bg_add     = "#004406", -- DiffAdd
   bg_chg     = "#232345", -- DiffChange
   bg_del     = "#663230", -- DiffDelete
   ui_nontext = "#5f87af", -- NonText, SpecialKey
-  fg_inc     = "#670044", -- IncSearch
-  bg_inc     = "#8aff04", -- IncSearch
+  deep_inc   = "#670044", -- IncSearch
   bg_match   = "#005f00", -- MatchParen
   bg_dtext   = "#343466", -- DiffText
 }

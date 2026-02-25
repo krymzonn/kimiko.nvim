@@ -11,7 +11,7 @@ M.palette = {
 
   -- CORE FG SHADES (bright → dim)
   fg0       = "#ffffff",
-  --fg1bri = "#eaf4a0",
+  fg1bri    = "#eaf4a0",
   fg1       = "#bad094", -- norm editable, tint
   fg2       = "#ffdfdf", -- htmlH2
   fg3       = "#7aa2f8", -- Pmenu, PmenuSel, htmlH3, 'change'
@@ -34,11 +34,10 @@ M.palette = {
   op        = "#f85d84",
   kw        = "#f8d15d", -- Statement
   active    = "#d1f85d", -- 'cypher', active window/element
-  title     = "#ff87af", -- Title, htmlH1
 
   -- UI / TAB / SEARCH / DIFF
-  deep_inc  = "#670044", -- IncSearch
   bg_match  = "#324700", -- MatchParen
+  deep_inc  = "#670044", -- IncSearch
   bg_search = "#00686c", -- Search
   bg_vis    = "#063662", -- Visual, DiffText
   bg_chg    = "#232345", -- DiffChange

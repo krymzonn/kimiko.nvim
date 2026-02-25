@@ -5,14 +5,14 @@ local groups = {
   base = {
     Normal       = { fg = p.fg1 },
     LineNr       = { fg = p.line },
-    CursorLineNr = { fg = p.fg_read },
+    CursorLineNr = { bg = p.b00, fg = p.h5 },
     LineNrAbove  = { fg = p.line },
     LineNrBelow  = { fg = p.line },
-    CursorLine   = { bg = p.bg1 },
-    CursorColumn = { bg = p.bg2 },
+    CursorLine   = { bg = p.b00 },
+    CursorColumn = { bg = p.bg1 },
     ColorColumn  = { bg = p.bg0 },
-    NonText      = { fg = p.ui_nontext },
-    SpecialKey   = { fg = p.ui_nontext },
+    NonText      = { fg = p.fg4 },
+    SpecialKey   = { fg = p.fg4 },
     ModeMsg      = { fg = p.fg_see },
     MoreMsg      = { fg = p.fg_read },
   },
@@ -45,7 +45,7 @@ local groups = {
     StatusLine   = { fg = p.fg_read, bg = p.bg3 },
     StatusLineNC = { fg = p.fg_see, bg = p.bg3 },
     VertSplit    = { fg = p.line, bg = p.bg3 },
-    Search       = { fg = p.fg0, bg = p.bg_search },
+    Search       = { bg = p.bg_search, underline = true },
     IncSearch    = { fg = p.deep_inc, bg = p.active },
     Visual       = { bg = p.bg_vis },
     MatchParen   = { bg = p.bg_match },
@@ -92,7 +92,7 @@ local bold_underline_groups = {
 local underline_groups = {} -- left empty
 local transparent_groups = {
   "Normal", "NormalNC", "NonText", "SpecialKey", "SignColumn", "FoldColumn",
-  "MsgArea", "EndOfBuffer", "ModeMsg", "MoreMsg", "LineNr", "CursorLineNr",
+  "MsgArea", "EndOfBuffer", "ModeMsg", "MoreMsg", "LineNr",
   "LineNrAbove", "LineNrBelow", "WinBar", "WinBarNC", "StatusLineNC",
   "TabLine", "TabLineFill", "TabLineSel", "VertSplit", "WinSeparator",
   "Pmenu", "PmenuSel", -- add floats later

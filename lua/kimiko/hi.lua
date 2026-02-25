@@ -20,7 +20,7 @@ local groups = {
     Comment     = { fg = p.h6 },
     Statement   = { fg = p.kw },
     Conditional = { fg = p.warn },
-    Type        = { fg = p.good },
+    Type        = { fg = p.fg4 },
     Function    = { fg = p.fn },
     Identifier  = { fg = p.fg1bri },
     String      = { fg = p.str },
@@ -81,7 +81,7 @@ local groups = {
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
 
 local bold_groups = {
-  "Conditional", "Define", "Exception", "Include", "Operator",
+  "Conditional", "Define", "Exception", "Include", "Operator", "Type",
   "PreProc", "Repeat", "Statement", "StatusLineNC", "VertSplit", "WinSeparator",
   "htmlH1", "htmlH2", "htmlH5", "htmlH6", "pythonBuiltin", "pythonStatement",
 }

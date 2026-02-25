@@ -5,9 +5,9 @@ local groups = {
   base = {
     Normal       = { fg = p.fg1 },
     LineNr       = { fg = p.line },
-    CursorLineNr = { fg = p.ui_status },
-    LineNrAbove  = { fg = p.fg_dim },
-    LineNrBelow  = { fg = p.fg_dim },
+    CursorLineNr = { fg = p.fg_read },
+    LineNrAbove  = { fg = p.line },
+    LineNrBelow  = { fg = p.line },
     CursorLine   = { bg = p.bg1 },
     CursorColumn = { bg = p.bg2 },
     ColorColumn  = { bg = p.bg0 },
@@ -53,9 +53,9 @@ local groups = {
   ui = {
     Pmenu        = { fg = p.line, bg = p.bg2 },
     PmenuSel     = { fg = p.fg2, bg = p.bg_sel },
-    StatusLine   = { fg = p.ui_status, bg = p.bg3 },
-    StatusLineNC = { fg = p.fg_statusnc, bg = p.bg3 },
-    VertSplit    = { fg = p.ui_border, bg = p.bg3 },
+    StatusLine   = { fg = p.fg_read, bg = p.bg3 },
+    StatusLineNC = { fg = p.fg_see, bg = p.bg3 },
+    VertSplit    = { fg = p.line, bg = p.bg3 },
     Search       = { fg = p.fg0, bg = p.bg_search },
     IncSearch    = { fg = p.fg_inc, bg = p.bg_inc },
     Visual       = { bg = p.bg_sel },
@@ -75,7 +75,7 @@ local groups = {
   plugins = {
     DiagnosticError    = { fg = p.err },
     DiagnosticWarn     = { fg = p.warn },
-    TelescopeBorder    = { fg = p.ui_border },
+    TelescopeBorder    = { fg = p.line },
     TelescopeSelection = { bg = p.bg_search, fg = p.fn },
     WhichKey           = { fg = p.fg1 },
     NeoTreeNormal      = { fg = p.fg1, bg = p.bg1 },
@@ -134,7 +134,7 @@ local function setup(opts)
 
   -- Plugins (inside setup for p/opts)
   local plugins = {}
-  plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
+  --plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
   for _, defs in pairs(plugins) do
     for group, attrs in pairs(defs) do
       hl(0, group, attrs)

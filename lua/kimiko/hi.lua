@@ -54,6 +54,9 @@ local groups = {
     TabLineSel   = { fg = p.line, bg = p.bg2 },
     WinBar       = { fg = p.line, bg = p.bg3 },
     WinBarNC     = { fg = p.line, bg = p.bg3 },
+
+
+    IndentBlanklineContextChar = { fg = p.line }
   },
   diff = {
     DiffAdd    = { bg = p.bg_add },

@@ -21,7 +21,7 @@ function M.get(p)
     ["@function.method.call"]  = { fg = p.fgc, underline = true },
     ["@function.builtin"]      = { fg = p.fg_see, underline = true, italic = true },
     --    ["@constructor"]           = { fg = p.active },
-    --
+
     ["@module"]                = { fg = p.boom },
     ["@module.builtin"]        = { fg = p.boom, italic = true },
     ["@label"]                 = { fg = p.boom, bold = true },
@@ -88,35 +88,34 @@ function M.get(p)
     ["@punctuation.bracket"]         = { fg = p.kw },
     ["@punctuation.special"]         = { fg = p.active },
 
+    ["@comment"]                     = { link = "Comment" },
+    ["@comment.documentation"]       = { fg = p.h5 },
+    ["@comment.error"]               = { fg = p.boom },
+    ["@comment.warning"]             = { fg = p.warn },
+    ["@comment.todo"]                = { fg = p.kw },
+    ["@comment.note"]                = { fg = p.fine },
 
-    ["@comment"]               = { link = "Comment" },
-    ["@comment.documentation"] = { fg = p.h5 },
-    ["@comment.error"]         = { fg = p.boom },
-    ["@comment.warning"]       = { fg = p.warn },
-    ["@comment.todo"]          = { fg = p.kw },
-    ["@comment.note"]          = { fg = p.fine },
-
-    ["@markup.strong"]         = { fg = p.h5 },
-    ["@markup.italic"]         = { fg = p.h5 },
-    ["@markup.strikethrough"]  = { fg = p.h5 },
-    ["@markup.underline"]      = { fg = p.h5 },
-    ["@markup.heading"]        = { fg = p.h5 },
-    ["@markup.heading.1"]      = { fg = p.h5 },
-    ["@markup.heading.2"]      = { fg = p.h5 },
-    ["@markup.heading.3"]      = { fg = p.h5 },
-    ["@markup.heading.4"]      = { fg = p.h5 },
-    ["@markup.heading.5"]      = { fg = p.h5 },
-    ["@markup.heading.6"]      = { fg = p.h5 },
-    ["@markup.quote"]          = { fg = p.h5 },
-    ["@markup.math"]           = { fg = p.h5 },
-    ["@markup.link"]           = { fg = p.h5 },
-    ["@markup.link.label"]     = { fg = p.h5 },
-    ["@markup.link.url"]       = { fg = p.h5 },
-    ["@markup.raw"]            = { fg = p.h5 },
-    ["@markup.raw.block"]      = { fg = p.h5 },
-    ["@markup.list"]           = { fg = p.h5 },
-    ["@markup.list.checked"]   = { fg = p.h5 },
-    ["@markup.list.unchecked"] = { fg = p.h5 },
+    ["@markup.strong"]               = { fg = p.fg_see, bold = true },
+    --["@markup.italic"]         = { italic=true},
+    --["@markup.strikethrough"]  = { fg = p.h5 },
+    --["@markup.underline"]      = { fg = p.h5 },
+    ["@markup.heading"]              = { fg = p.op },
+    ["@markup.heading.1"]            = { link = "htmlH1" },
+    ["@markup.heading.2"]            = { link = "htmlH2" },
+    ["@markup.heading.3"]            = { link = "htmlH3" },
+    ["@markup.heading.4"]            = { link = "htmlH4" },
+    ["@markup.heading.5"]            = { link = "htmlH5" },
+    ["@markup.heading.6"]            = { link = "htmlH6" },
+    ["@markup.quote"]                = { fg = p.accent },
+    ["@markup.math"]                 = { fg = p.fg3 },
+    ["@markup.link"]                 = { fg = p.h5 },
+    ["@markup.link.label"]           = { fg = p.fg3 },
+    ["@markup.link.url"]             = { fg = p.fg4 },
+    ["@markup.raw"]                  = { fg = p.fg1 },
+    ["@markup.raw.block"]            = { fg = p.fine },
+    ["@markup.list"]                 = { fg = p.fn },
+    ["@markup.list.checked"]         = { fg = p.good, bold = true },
+    ["@markup.list.unchecked"]       = { fg = p.kw, bold = true },
     --
     -- @markup.strong bold text
     -- @markup.italic italic text
@@ -139,33 +138,15 @@ function M.get(p)
     -- @markup.list list markers
     -- @markup.list.checked checked todo-style list markers
     -- @markup.list.unchecked unchecked todo-style list markers
+    --
+    -- @diff.plus added text (for diff files)
+    -- @diff.minus deleted text (for diff files)
+    -- @diff.delta changed text (for diff files)
+    -- @tag XML-style tag names (e.g. in XML, HTML, etc.)
+    -- @tag.builtin builtin tag names (e.g. HTML5 tags)
+    -- @tag.attribute XML-style tag attributes
+    -- @tag.delimiter XML-style tag delimiters
 
-    --    ["@keyword.function"]      = { link = "Statement" },
-    --    ["@keyword.import"]        = { fg = p.kw, italic = true },
-    --    ["@keyword.conditional"]   = { fg = p.warn },
-    --    ["@keyword.operator"]      = { link = "Operator" },
-    --
-    --    ["@type.builtin"]          = { link = "Type", italic = true },
-    --    ["@property"]              = { fg = p.fg3 },
-    --
-    --    ["@string.documentation"]  = { fg = p.fgc, italic = true },
-    --    ["@string.escape"]         = { fg = p.op },
-    --
-    --    ["@boolean"]               = { link = "Number" },
-    --    ["@number.float"]          = { link = "Number" },
-    --
-    --    ["@comment.todo"]          = { fg = p.warn, bold = true },
-    --    ["@comment.note"]          = { fg = p.fine, italic = true },
-    --
-    --    ["@punctuation.delimiter"] = { fg = p.fg4 },
-    --    ["@punctuation.bracket"]   = { fg = p.fg4 },
-    --
-    --    -- Markup (huge for Markdown in LazyVim)
-    --    ["@markup.heading"]        = { fg = p.fg2, bold = true },
-    --    ["@markup.strong"]         = { bold = true },
-    --    ["@markup.italic"]         = { italic = true },
-    --    ["@markup.link"]           = { fg = p.fg3, underline = true },
-    --    ["@markup.raw"]            = { fg = p.str },
   }
 end
 

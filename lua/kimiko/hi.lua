@@ -21,7 +21,7 @@ local groups = {
     Statement   = { fg = p.kw },
     Conditional = { fg = p.warn },
     Type        = { fg = p.good },
-    Function    = { fg = p.fine },
+    Function    = { fg = p.fn },
     Identifier  = { fg = p.fg1bri },
     String      = { fg = p.str },
     Number      = { fg = p.num },

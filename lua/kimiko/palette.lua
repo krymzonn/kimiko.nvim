@@ -37,13 +37,13 @@ M.palette = {
 
   -- UI / TAB / SEARCH / DIFF
   active    = "#d1f85d", -- 'cypher', active window/element
-  bg_search = "#005187", -- Search
-  bg_add    = "#004406", -- DiffAdd
+  bg_search = "#00686c", -- Search
+  bg_vis    = "#063662", -- Visual, DiffText
   bg_chg    = "#232345", -- DiffChange
-  bg_del    = "#663230", -- DiffDelete
+  bg_add    = "#1b3f00", -- DiffAdd
+  bg_del    = "#4c1100", -- DiffDelete
   deep_inc  = "#670044", -- IncSearch
-  bg_match  = "#005f00", -- MatchParen
-  bg_dtext  = "#343466", -- DiffText
+  bg_match  = "#324700", -- MatchParen
 }
 
 return M

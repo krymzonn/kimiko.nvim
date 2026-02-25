@@ -56,7 +56,7 @@ local groups = {
     VertSplit    = { fg = p.line, bg = p.bg3 },
     Search       = { fg = p.fg0, bg = p.bg_search },
     IncSearch    = { fg = p.deep_inc, bg = p.active },
-    Visual       = { bg = p.bg_dtext },
+    Visual       = { bg = p.bg_vis },
     MatchParen   = { bg = p.bg_match },
     TabLine      = { fg = p.line, bg = p.bg3 },
     TabLineFill  = { fg = p.line, bg = p.bg2 },
@@ -68,7 +68,7 @@ local groups = {
     DiffAdd    = { bg = p.bg_add },
     DiffChange = { bg = p.bg_chg },
     DiffDelete = { bg = p.bg_del },
-    DiffText   = { bg = p.bg_dtext },
+    DiffText   = { bg = p.bg_vis },
   },
   plugins = {
     DiagnosticError    = { fg = p.err },

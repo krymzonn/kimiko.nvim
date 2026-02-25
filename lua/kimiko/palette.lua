@@ -27,23 +27,23 @@ M.palette = {
   warn      = "#fa9903", -- Conditional
   fine      = "#b2e878", -- th 'mint'
   good      = "#5df85d", -- th 'green'
-  kw        = "#f8d15d", -- Statement
-  op        = "#f85d84",
-  str       = "#f8aaf8",
   num       = "#aaaaf8",
+  str       = "#f8aaf8",
   fn        = "#d1f8f8", -- Function, Identifier
-  title     = "#ff87af", -- Title, htmlH1
   fgc       = "#aad1d1", -- Comment os dim
+  op        = "#f85d84",
+  kw        = "#f8d15d", -- Statement
+  active    = "#d1f85d", -- 'cypher', active window/element
+  title     = "#ff87af", -- Title, htmlH1
 
   -- UI / TAB / SEARCH / DIFF
-  active    = "#d1f85d", -- 'cypher', active window/element
+  deep_inc  = "#670044", -- IncSearch
+  bg_match  = "#324700", -- MatchParen
   bg_search = "#00686c", -- Search
   bg_vis    = "#063662", -- Visual, DiffText
   bg_chg    = "#232345", -- DiffChange
   bg_add    = "#1b3f00", -- DiffAdd
   bg_del    = "#4c1100", -- DiffDelete
-  deep_inc  = "#670044", -- IncSearch
-  bg_match  = "#324700", -- MatchParen
 }
 
 return M

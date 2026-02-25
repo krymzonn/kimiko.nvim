@@ -26,7 +26,7 @@ local groups = {
     String      = { fg = p.str },
     Number      = { fg = p.num },
     Operator    = { fg = p.op },
-    PreProc     = { fg = p.op },
+    PreProc     = { fg = p.fg4 },
     Constant    = { fg = p.fg3 },
     Special     = { fg = p.fine },
     Todo        = { fg = p.warn },
@@ -81,10 +81,9 @@ local groups = {
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
 
 local bold_groups = {
-  "Conditional", "Define", "Exception", "Identifier", "Include", "Operator",
+  "Conditional", "Define", "Exception", "Include", "Operator",
   "PreProc", "Repeat", "Statement", "StatusLineNC", "VertSplit", "WinSeparator",
-  "htmlH1", "htmlH2", "htmlH5", "pythonBuiltin", "pythonStatement",
-  "CursorLineNr", "BufferLineBufferSelected", "BufferLineTabSelected",
+  "htmlH1", "htmlH2", "htmlH5", "htmlH6", "pythonBuiltin", "pythonStatement",
 }
 local bold_underline_groups = {
   "Function", "TabLine", "TabLineFill", "TabLineSel", "Title", "Todo",

@@ -2,22 +2,29 @@ local M = {}
 
 function M.get(p)
   return {
-    ["@keyword"]  = { link = "Statement" },
-    ["@function"] = { link = "Function" },
-    ["@type"]     = { link = "Type" },
-    ["@string"]   = { link = "String" },
-    ["@number"]   = { link = "Number" },
-    ["@operator"] = { link = "Operator" },
-    ["@comment"]  = { link = "Comment" },
+    ["@keyword"]                    = { link = "Statement" },
+    ["@function"]                   = { link = "Function" },
+    ["@type"]                       = { link = "Type" },
+    ["@string"]                     = { link = "String" },
+    ["@number"]                     = { link = "Number" },
+    ["@operator"]                   = { link = "Operator" },
+    ["@comment"]                    = { link = "Comment" },
 
-    --    ["@variable"]              = { fg = p.fg1 },
-    --    ["@variable.parameter"]    = { fg = p.fg1, italic = true },
-    --    ["@variable.member"]       = { fg = p.fg3 },
-    --    ["@variable.builtin"]      = { fg = p.fg_see, italic = true },
+    ["@variable"]                   = { link = "Identifier" },
+    ["@variable.builtin"]           = { fg = p.op, italic = true },
+    ["@variable.member"]            = { fg = p.fg3 },
+    ["@variable.parameter"]         = { fg = p.h5 },
+    ["@variable.parameter.builtin"] = { fg = p.h6, italic = true },
+
+    ["@constant"]                   = { link = "Constant" },
+    ["@constant.builtin"]           = { fg = p.fg_read, italic = true },
+    ["@constant.macro"]             = { fg = p.fg_read, bold = true },
+    --    [""]           = { fg = p.active },
     --
-    --    ["@function.call"]         = { fg = p.fn },
-    --    ["@function.method"]       = { fg = p.fn },
-    --    ["@function.builtin"]      = { fg = p.fn, italic = true },
+    ["@function.call"]              = { fg = p.fg1bri, underline = true },
+    ["@function.method"]            = { fg = p.fg3, underline = true, bold = true },
+    ["@function.method.call"]       = { fg = p.fg3, underline = true },
+    ["@function.builtin"]           = { fg = p.fg_read, underline = true, italic = true },
     --    ["@constructor"]           = { fg = p.active },
     --
     --    ["@keyword.function"]      = { link = "Statement" },

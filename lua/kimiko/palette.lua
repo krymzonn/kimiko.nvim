@@ -23,7 +23,7 @@ M.palette = {
   fg_read   = "#f8d1aa", -- main read-only
 
   -- ACCENT / SEMANTIC COLORS
-  err       = "#f8015d",
+  boom      = "#f8015d",
   warn      = "#fa9903", -- Conditional
   fine      = "#b2e878", -- th 'mint'
   good      = "#5df85d", -- th 'green'
@@ -37,6 +37,7 @@ M.palette = {
 
   -- UI / TAB / SEARCH / DIFF
   bg_match  = "#324700", -- MatchParen
+  accent    = "#aa83f8",
   deep_inc  = "#670044", -- IncSearch
   bg_search = "#00686c", -- Search
   bg_vis    = "#063662", -- Visual, DiffText

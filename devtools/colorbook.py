@@ -87,11 +87,16 @@ def luminance(hex_color: str) -> float:
     return (0.299 * r + 0.587 * g + 0.114 * b) / 255
 
 # ── SVG v5 ─────────────────────────────────────────────────────────────────
-W, H, PAD = 168, 98, 16
+W, H, PAD = 144, 128, 0
 STROKE_UNIQUE = "#555555"
 STROKE_DUP    = "#3a3a3a"   # 25% gray (dark) as requested
 LEFT = 26
 COLS = 8
+#W, H, PAD = 168, 98, 16
+#STROKE_UNIQUE = "#555555"
+#STROKE_DUP    = "#3a3a3a"   # 25% gray (dark) as requested
+#LEFT = 26
+#COLS = 8
 
 def generate_svg(book: PaletteBook, mode: str) -> str:
     # Apply mode
@@ -121,11 +126,11 @@ def generate_svg(book: PaletteBook, mode: str) -> str:
 <svg width="{width}" height="9999" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      text {{ font-family: monospace; }}
+      text {{ font-family: GoMono Nerd Font Mono, monospace; }}
       .title {{ font-size: 26px; fill: #f8d1aa; font-weight: bold; }}
       .section {{ font-size: 18px; fill: #eeeeee; }}
-      .hex {{ font-size: 13px; font-weight: bold; }}
-      .label {{ font-size: 11px; }}
+      .hex {{ font-size: 14px; font-weight: bold; }}
+      .label {{ font-size: 12px; font-family: sans; }}
     </style>
   </defs>
   <text x="{LEFT}" y="46" class="title">{book.title}</text>
@@ -134,7 +139,7 @@ def generate_svg(book: PaletteBook, mode: str) -> str:
     y = 100
     for sec in book.sections:
         svg.append(f'  <text x="{LEFT}" y="{y}" class="section">{sec.title}</text>')
-        y += 38
+        y += 18
         x = LEFT
         count = 0
         for sw in sec.swatches:
@@ -144,15 +149,15 @@ def generate_svg(book: PaletteBook, mode: str) -> str:
             tc = "#111111" if luminance(sw.hex) > 0.55 else "#f8f8f8"
 
             key = sw.labels[0]
-            src_tag = " / ".join(sorted(sw.sources)) if hasattr(sw, 'sources') and sw.sources else ""
-            rest = (src_tag + " / " if src_tag else "") + " / ".join(sw.labels[1:])
+            src_tag = "/".join(sorted(sw.sources)) if hasattr(sw, 'sources') and sw.sources else ""
+            rest = (src_tag + "/" if src_tag else "") + "/".join(sw.labels[1:])
             rest += " ✓" if dup else ""
             if len(rest) > 38: rest = rest[:35] + "…"
 
             svg.append(f'''  <g>
-    <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="8" fill="{sw.hex}" stroke="{stroke}" stroke-width="12"/>
+    <rect x="{x}" y="{y}" width="{W}" height="{H}" rx="8" fill="{sw.hex}" stroke="{stroke}" stroke-width="0.12"/>
     <text x="{x+10}" y="{y+24}" fill="{tc}" class="hex">{sw.hex}</text>
-    <text x="{x+10}" y="{y+42}" fill="{tc}" class="label">{key}</text>
+    <text x="{x+10}" y="{y+42}" fill="{tc}" class="hex">{key}</text>
     <text x="{x+10}" y="{y+58}" fill="{tc}" class="label">{rest}</text>
   </g>''')
 
@@ -160,8 +165,8 @@ def generate_svg(book: PaletteBook, mode: str) -> str:
             count += 1
             if count % COLS == 0:
                 x = LEFT
-                y += H + 26
-        if count % COLS != 0: y += H + 26
+                y += H + 16
+        if count % COLS != 0: y += H + 16
         y += 50
 
     svg[-1] = svg[-1].replace('height="9999"', f'height="{y+50}"')

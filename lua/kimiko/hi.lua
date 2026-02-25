@@ -58,7 +58,7 @@ local groups = {
     VertSplit    = { fg = p.line, bg = p.bg3 },
     Search       = { fg = p.fg0, bg = p.bg_search },
     IncSearch    = { fg = p.fg_inc, bg = p.bg_inc },
-    Visual       = { bg = p.bg_sel },
+    Visual       = { bg = p.bg_dtext },
     MatchParen   = { bg = p.bg_match },
     TabLine      = { fg = p.fg_dim, bg = p.bg3 },
     TabLineFill  = { fg = p.fg_dim, bg = p.bg2 },

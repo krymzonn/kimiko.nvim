@@ -13,8 +13,8 @@ function M.get(p)
     ["@variable"]                   = { link = "Identifier" },
     ["@variable.builtin"]           = { fg = p.op, italic = true },
     ["@variable.member"]            = { fg = p.fg3 },
-    ["@variable.parameter"]         = { fg = p.h5 },
-    ["@variable.parameter.builtin"] = { fg = p.h6, italic = true },
+    ["@variable.parameter"]         = { fg = p.fgc },
+    ["@variable.parameter.builtin"] = { fg = p.fgc, italic = true },
 
     ["@constant"]                   = { link = "Constant" },
     ["@constant.builtin"]           = { fg = p.fg_read, italic = true },
@@ -22,8 +22,8 @@ function M.get(p)
     --    [""]           = { fg = p.active },
     --
     ["@function.call"]              = { fg = p.fg1bri, underline = true },
-    ["@function.method"]            = { fg = p.fg3, underline = true, bold = true },
-    ["@function.method.call"]       = { fg = p.fg3, underline = true },
+    ["@function.method"]            = { fg = p.accent, underline = true, bold = true },
+    ["@function.method.call"]       = { fg = p.accent, underline = true },
     ["@function.builtin"]           = { fg = p.fg_read, underline = true, italic = true },
     --    ["@constructor"]           = { fg = p.active },
     --

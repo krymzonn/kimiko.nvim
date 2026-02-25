@@ -39,15 +39,6 @@ local groups = {
     htmlH5 = { fg = p.h5 },
     htmlH6 = { fg = p.h6 },
   },
-  treesitter = {
-    ["@keyword"]  = { link = "Statement" },
-    ["@function"] = { link = "Function" },
-    ["@type"]     = { link = "Type" },
-    ["@string"]   = { link = "String" },
-    ["@number"]   = { link = "Number" },
-    ["@operator"] = { link = "Operator" },
-    ["@comment"]  = { link = "Comment" },
-  },
   ui = {
     Pmenu        = { fg = p.line, bg = p.bg2 },
     PmenuSel     = { fg = p.fg3, bg = p.bg_sel },
@@ -87,6 +78,7 @@ local groups = {
     pythonBuiltin   = { link = "Type" },
   },
 }
+groups.treesitter = require("kimiko.groups.treesitter").get(p)
 
 local bold_groups = {
   "Conditional", "Define", "Exception", "Identifier", "Include", "Operator",

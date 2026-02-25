@@ -76,6 +76,7 @@ local groups = {
     WinSeparator    = { link = "VertSplit" },
     pythonStatement = { link = "Statement" },
     pythonBuiltin   = { link = "Type" },
+    Delimiter       = { link = "Special" },
   },
 }
 groups.treesitter = require("kimiko.groups.treesitter").get(p)

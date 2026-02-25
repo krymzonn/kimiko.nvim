@@ -3,7 +3,6 @@ local M = {}
 function M.get(p)
   return {
     ["@operator"]                   = { link = "Operator" },
-    ["@comment"]                    = { link = "Comment" },
 
     ["@variable"]                   = { link = "Identifier" },
     ["@variable.builtin"]           = { fg = p.op, italic = true },
@@ -40,7 +39,7 @@ function M.get(p)
     ["@character.special"]     = { fg = p.boom },
 
     ["@boolean"]               = { fg = p.fg2 },
-    ["@number"]                = { fg = p.fg3 },
+    ["@number"]                = { fg = p.num },
     ["@number.float"]          = { fg = p.num, italic = true },
 
 
@@ -84,6 +83,62 @@ function M.get(p)
     --@keyword.conditional.ternary ternary operator (e.g. ?, :)
     --@keyword.directive various preprocessor directives and shebangs
     --@keyword.directive.define preprocessor definition directives
+
+    ["@punctuation.delimiter"]       = { fg = p.fn },
+    ["@punctuation.bracket"]         = { fg = p.kw },
+    ["@punctuation.special"]         = { fg = p.active },
+
+
+    ["@comment"]               = { link = "Comment" },
+    ["@comment.documentation"] = { fg = p.h5 },
+    ["@comment.error"]         = { fg = p.boom },
+    ["@comment.warning"]       = { fg = p.warn },
+    ["@comment.todo"]          = { fg = p.kw },
+    ["@comment.note"]          = { fg = p.fine },
+
+    ["@markup.strong"]         = { fg = p.h5 },
+    ["@markup.italic"]         = { fg = p.h5 },
+    ["@markup.strikethrough"]  = { fg = p.h5 },
+    ["@markup.underline"]      = { fg = p.h5 },
+    ["@markup.heading"]        = { fg = p.h5 },
+    ["@markup.heading.1"]      = { fg = p.h5 },
+    ["@markup.heading.2"]      = { fg = p.h5 },
+    ["@markup.heading.3"]      = { fg = p.h5 },
+    ["@markup.heading.4"]      = { fg = p.h5 },
+    ["@markup.heading.5"]      = { fg = p.h5 },
+    ["@markup.heading.6"]      = { fg = p.h5 },
+    ["@markup.quote"]          = { fg = p.h5 },
+    ["@markup.math"]           = { fg = p.h5 },
+    ["@markup.link"]           = { fg = p.h5 },
+    ["@markup.link.label"]     = { fg = p.h5 },
+    ["@markup.link.url"]       = { fg = p.h5 },
+    ["@markup.raw"]            = { fg = p.h5 },
+    ["@markup.raw.block"]      = { fg = p.h5 },
+    ["@markup.list"]           = { fg = p.h5 },
+    ["@markup.list.checked"]   = { fg = p.h5 },
+    ["@markup.list.unchecked"] = { fg = p.h5 },
+    --
+    -- @markup.strong bold text
+    -- @markup.italic italic text
+    -- @markup.strikethrough struck-through text
+    -- @markup.underline underlined text (only for literal underline markup!)
+    -- @markup.heading headings, titles (including markers)
+    -- @markup.heading.1 top-level heading
+    -- @markup.heading.2 section heading
+    -- @markup.heading.3 subsection heading
+    -- @markup.heading.4 and so on
+    -- @markup.heading.5 and so forth
+    -- @markup.heading.6 six levels ought to be enough for anybody
+    -- @markup.quote block quotes
+    -- @markup.math math environments (e.g. $ ... $ in LaTeX)
+    -- @markup.link text references, footnotes, citations, etc.
+    -- @markup.link.label link, reference descriptions
+    -- @markup.link.url URL-style links
+    -- @markup.raw literal or verbatim text (e.g. inline code)
+    -- @markup.raw.block literal or verbatim text as a stand-alone block
+    -- @markup.list list markers
+    -- @markup.list.checked checked todo-style list markers
+    -- @markup.list.unchecked unchecked todo-style list markers
 
     --    ["@keyword.function"]      = { link = "Statement" },
     --    ["@keyword.import"]        = { fg = p.kw, italic = true },

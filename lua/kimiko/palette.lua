@@ -8,7 +8,6 @@ M.palette = {
   bg1        = "#0d1111", -- CursorLine
   bg2        = "#1d2121", -- CursorColumn
   bg3        = "#323030",
-  bg4        = "#4e4e52",
 
   -- CORE FG SHADES (bright → dim)
   fg0        = "#ffffff",
@@ -17,8 +16,7 @@ M.palette = {
   fg2        = "#eeeeee", -- Pmenu, PmenuSel, htmlH3
   fg3        = "#bfbebc", -- htmlH4, htmlH5
   fg4        = "#aaaaab", -- htmlH6
-  line       = "#6c6c6c", -- VertSplit, WinSeparator
-  fg_dim     = "#3a3a3a", -- ModeMsg, MoreMsg
+  line       = "#4e4e52", -- mid neutral
   fg_read    = "#f8d1aa",
   fg_see     = "#fedece", -- StatusLineNC
 
@@ -33,12 +31,11 @@ M.palette = {
   num        = "#aaaaf8",
   fn         = "#d1f8f8", -- Function, Identifier
   title      = "#ff87af", -- Title, htmlH1
-  fgc        = "#aed7d7", -- Comment
+  fgc        = "#aad1d1", -- Comment os dim
   fg_h2      = "#ffdfdf", -- htmlH2
 
   -- UI / TAB / SEARCH / DIFF
   active     = "#d1f85d", -- 'cypher', active window/element
-  dimb       = "#aad1d1", -- dim os txt
   bg_search  = "#005187", -- Search
   bg_add     = "#004406", -- DiffAdd
   bg_chg     = "#232345", -- DiffChange

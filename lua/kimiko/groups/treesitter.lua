@@ -49,7 +49,7 @@ function M.get(p)
 
     ["@attribute"]         = { fg = p.good },
     ["@attribute.builtin"] = { italic = true },
-    ["@property"]          = { fg = p.accent },
+    --["@property"]          = { fg = p.accent },
 
 
     ["@keyword"]                     = { link = "Statement" },

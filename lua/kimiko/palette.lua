@@ -36,7 +36,7 @@ M.palette = {
   active    = "#d1f85d", -- 'cypher', active window/element
 
   -- UI / TAB / SEARCH / DIFF
-  bg_match  = "#324700", -- MatchParen
+  bg_match  = "#526600", -- MatchParen
   accent    = "#aa83f8",
   deep_inc  = "#670044", -- IncSearch
   bg_search = "#00686c", -- Search

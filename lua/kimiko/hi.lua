@@ -35,8 +35,12 @@ local groups = {
   diff = {
     DiffAdd    = { bg = p.bg_add },
     DiffChange = { bg = p.bg_chg },
-    DiffDelete = { bg = p.bg_del },
+    DiffDelete = { bg = p.bg_del, fg = p.deep_inc },
     DiffText   = { bg = p.bg_vis },
+    --DiffAdd    = { link = "GitSignsAdd"},
+    --DiffChange = { link = "GitSignsChange"},
+    --DiffDelete = { link = "GitSignsDelete"},
+    --DiffText   = { link = "GitSignsAdd"},
   },
   plugins = {
     DiagnosticError    = { fg = p.boom },

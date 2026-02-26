@@ -29,11 +29,11 @@ function M.get(p)
     FoldColumn           = { fg = p.h5 },
     CursorLineFold       = { fg = p.active },
     Folded               = { bg = p.line },
-    GitSignsAdd          = { fg = p.bg_add },
-    GitSignsChange       = { fg = p.bg_chg },
-    GitSignsDelete       = { fg = p.bg_del },
+    GitSignsAdd          = { fg = p.fine },
+    GitSignsChange       = { fg = p.fg4 },
+    GitSignsDelete       = { fg = p.op },
     GitSignsChangedelete = { fg = p.warn }, -- mixed
-    GitSignsTopdelete    = { fg = p.err },
+    GitSignsTopdelete    = { fg = p.boom },
     GitSignsUntracked    = { fg = p.h6 },
 
 

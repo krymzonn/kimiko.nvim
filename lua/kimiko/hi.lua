@@ -82,8 +82,9 @@ local groups = {
     Delimiter       = { link = "Special" },
   },
 }
-groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
+--groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
+groups.snacks = require("kimiko.groups.snacks").get(p)
 
 local bold_groups = {
   "Conditional", "Define", "Exception", "Include", "Operator", "Type",

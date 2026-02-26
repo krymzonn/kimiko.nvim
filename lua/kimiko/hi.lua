@@ -3,18 +3,11 @@ local p = require("kimiko.palette").palette
 
 local groups = {
   base = {
-    Normal       = { fg = p.fg1 },
-    LineNr       = { fg = p.line },
-    CursorLineNr = { bg = p.b00, fg = p.h5 },
-    LineNrAbove  = { fg = p.line },
-    LineNrBelow  = { fg = p.line },
-    CursorLine   = { bg = p.b00 },
-    CursorColumn = { bg = p.bg1 },
-    ColorColumn  = { bg = p.bg0 },
-    NonText      = { fg = p.fg4 },
-    SpecialKey   = { fg = p.fg4 },
-    ModeMsg      = { fg = p.fg_see },
-    MoreMsg      = { fg = p.fg_read },
+    Normal     = { fg = p.fg1 },
+    NonText    = { fg = p.fg4 },
+    SpecialKey = { fg = p.fg4 },
+    ModeMsg    = { fg = p.fg_see },
+    MoreMsg    = { fg = p.fg_read },
   },
   syntax = {
     Comment     = { fg = p.h6 },
@@ -38,25 +31,6 @@ local groups = {
     htmlH4 = { fg = p.fg4 },
     htmlH5 = { fg = p.h5 },
     htmlH6 = { fg = p.h6 },
-  },
-  ui = {
-    Pmenu        = { fg = p.line, bg = p.bg2 },
-    PmenuSel     = { fg = p.fg3, bg = p.bg_sel },
-    StatusLine   = { fg = p.fg_read, bg = p.bg3 },
-    StatusLineNC = { fg = p.fg_see, bg = p.bg3 },
-    VertSplit    = { fg = p.line, bg = p.bg3 },
-    Search       = { bg = p.bg_search, underline = true },
-    IncSearch    = { fg = p.deep_inc, bg = p.active },
-    Visual       = { bg = p.bg_vis },
-    MatchParen   = { bg = p.bg_match },
-    TabLine      = { fg = p.line, bg = p.bg3 },
-    TabLineFill  = { fg = p.line, bg = p.bg2 },
-    TabLineSel   = { fg = p.line, bg = p.bg2 },
-    WinBar       = { fg = p.line, bg = p.bg3 },
-    WinBarNC     = { fg = p.line, bg = p.bg3 },
-
-
-    IndentBlanklineContextChar = { fg = p.line }
   },
   diff = {
     DiffAdd    = { bg = p.bg_add },
@@ -83,6 +57,7 @@ local groups = {
   },
 }
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
+groups.ui = require("kimiko.groups.ui").get(p)
 --groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
 groups.snacks = require("kimiko.groups.snacks").get(p)
 

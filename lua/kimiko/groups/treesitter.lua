@@ -59,7 +59,7 @@ function M.get(p)
     ["@keyword.import"]              = { fg = p.kw, bold = true },
     ["@keyword.type"]                = { fg = p.num, bold = true },
     ["@keyword.modifier"]            = { fg = p.h5 },
-    ["@keyword.repeat"]              = { fg = p.active, bold = true },
+    ["@keyword.repeat"]              = { fg = p.loop, bold = true },
     ["@keyword.return"]              = { fg = p.warn, bold = true },
     ["@keyword.debug"]               = { fg = p.accent, bold = true },
     ["@keyword.exception"]           = { fg = p.boom, bold = true },

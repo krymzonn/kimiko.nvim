@@ -29,6 +29,7 @@ function M.get(p)
     FoldColumn           = { fg = p.h5 },
     CursorLineFold       = { fg = p.active },
     Folded               = { bg = p.line },
+
     GitSignsAdd          = { fg = p.fine },
     GitSignsChange       = { fg = p.fg4 },
     GitSignsDelete       = { fg = p.op },

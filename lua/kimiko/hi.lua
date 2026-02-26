@@ -4,7 +4,7 @@ local p = require("kimiko.palette").palette
 local groups = {
   base = {
     Normal     = { fg = p.fg1 },
-    NonText    = { fg = p.fg4 },
+    NonText    = { fg = p.bg_chg },
     SpecialKey = { fg = p.fg4 },
     ModeMsg    = { fg = p.fg_see },
     MoreMsg    = { fg = p.fg_read },
@@ -43,12 +43,8 @@ local groups = {
     --DiffText   = { link = "GitSignsAdd"},
   },
   plugins = {
-    DiagnosticError    = { fg = p.boom },
-    DiagnosticWarn     = { fg = p.warn },
-    TelescopeBorder    = { fg = p.line },
-    TelescopeSelection = { bg = p.bg_search, fg = p.fn },
-    WhichKey           = { fg = p.fg1 },
-    NeoTreeNormal      = { fg = p.fg1, bg = p.bg1 },
+    WhichKey      = { fg = p.fg1 },
+    NeoTreeNormal = { fg = p.fg1, bg = p.bg1 },
   },
   links = {
     htmlTag         = { link = "htmlTagName" },
@@ -64,6 +60,8 @@ groups.treesitter = require("kimiko.groups.treesitter").get(p)
 groups.ui = require("kimiko.groups.ui").get(p)
 --groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
 groups.snacks = require("kimiko.groups.snacks").get(p)
+groups.diagnostics = require("kimiko.groups.diagnostics").get(p)
+groups.telescope = require("kimiko.groups.diagnostics").get(p)
 
 local bold_groups = {
   "Conditional", "Define", "Exception", "Include", "Operator", "Type",

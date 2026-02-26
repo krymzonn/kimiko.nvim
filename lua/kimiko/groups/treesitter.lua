@@ -138,14 +138,15 @@ function M.get(p)
     -- @markup.list list markers
     -- @markup.list.checked checked todo-style list markers
     -- @markup.list.unchecked unchecked todo-style list markers
-    --
-    -- @diff.plus added text (for diff files)
-    -- @diff.minus deleted text (for diff files)
-    -- @diff.delta changed text (for diff files)
-    -- @tag XML-style tag names (e.g. in XML, HTML, etc.)
-    -- @tag.builtin builtin tag names (e.g. HTML5 tags)
-    -- @tag.attribute XML-style tag attributes
-    -- @tag.delimiter XML-style tag delimiters
+
+
+    ["@diff.plus"]     = { link = "DiffAdd" },
+    ["@diff.minus"]    = { link = "DiffDelete" },
+    ["@diff.delta"]    = { link = "DiffChange" },
+    ["@tag"]           = { fg = p.fine },
+    ["@tag.builtin"]   = { fg = p.fgc },
+    ["@tag.attribute"] = { fg = p.fg3 },
+    ["@tag.delimiter"] = { link = "@punctuation.bracket" },
 
   }
 end

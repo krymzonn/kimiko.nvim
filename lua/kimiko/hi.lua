@@ -82,6 +82,7 @@ local groups = {
     Delimiter       = { link = "Special" },
   },
 }
+groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
 
 local bold_groups = {

@@ -34,10 +34,10 @@ local groups = {
   },
   diff = {
     DiffAdd    = { bg = p.bg_add },
-    DiffChange = { bg = p.bg_chg },
-    DiffDelete = { bg = p.bg_del, fg = p.deep_inc },
-    DiffText   = { bg = p.bg_vis },
-    --DiffAdd    = { link = "GitSignsAdd"},
+    DiffChange = { bg = p.bg3 },
+    DiffDelete = { bg = p.bg_del, fg = p.b00 }, -- OK for both n -d and difffile
+    DiffText   = { bg = p.bg_chg },
+    --DiffAdd    = { link = "GitSignsAdd"}, -- bad for nvim -d (vimdiff)
     --DiffChange = { link = "GitSignsChange"},
     --DiffDelete = { link = "GitSignsDelete"},
     --DiffText   = { link = "GitSignsAdd"},

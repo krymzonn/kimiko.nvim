@@ -16,7 +16,7 @@ function M.get(p)
 
 
     ["@function"]              = { link = "Function" },
-    ["@function.call"]         = { fg = p.fg1bri, underline = true },
+    ["@function.call"]         = { fg = p.fn, underline = true },
     ["@function.method"]       = { fg = p.fgc, underline = true, bold = true },
     ["@function.method.call"]  = { fg = p.fgc, underline = true },
     ["@function.builtin"]      = { fg = p.fg_see, underline = true, italic = true },
@@ -38,7 +38,7 @@ function M.get(p)
     ["@character"]             = { fg = p.fg2 },
     ["@character.special"]     = { fg = p.boom },
 
-    ["@boolean"]               = { fg = p.fg2 },
+    ["@boolean"]               = { fg = p.fg_read },
     ["@number"]                = { fg = p.num },
     ["@number.float"]          = { fg = p.num, italic = true },
 
@@ -49,13 +49,13 @@ function M.get(p)
 
     ["@attribute"]         = { fg = p.good },
     ["@attribute.builtin"] = { italic = true },
-    --["@property"]          = { fg = p.accent },
+    ["@property"]          = { fg = p.fine },
 
 
     ["@keyword"]                     = { link = "Statement" },
     ["@keyword.coroutine"]           = { fg = p.accent, bold = true },
     ["@keyword.function"]            = { fg = p.kw, bold = true },
-    ["@keyword.operator"]            = { fg = p.boom, bold = true },
+    ["@keyword.operator"]            = { fg = p.op, bold = true },
     ["@keyword.import"]              = { fg = p.kw, bold = true },
     ["@keyword.type"]                = { fg = p.num, bold = true },
     ["@keyword.modifier"]            = { fg = p.h5 },

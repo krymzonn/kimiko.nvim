@@ -38,13 +38,13 @@ M.palette = {
   fgc       = "#aad1d1", -- os dim
 
   -- UI / TAB / SEARCH / DIFF
-  deep_inc  = "#670044", -- IncSearch
   bg_match  = "#87004f", -- MatchParen
-  bg_search = "#00874f", -- Search
+  deep_inc  = "#670044", -- IncSearch
+  bg_del    = "#4c1100", -- DiffDelete
   bg_vis    = "#004f87", -- Visual
   bg_chg    = "#232345", -- DiffChange
+  bg_search = "#3d6900", -- Search
   bg_add    = "#1b3f00", -- DiffAdd
-  bg_del    = "#4c1100", -- DiffDelete
 }
 
 return M

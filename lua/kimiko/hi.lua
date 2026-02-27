@@ -4,7 +4,7 @@ local p = require("kimiko.palette").palette
 local groups = {
   base = {
     Normal     = { fg = p.fg1 },
-    NonText    = { fg = p.bg_chg },
+    NonText    = { fg = p.bg_vis },
     SpecialKey = { fg = p.fg4 },
     ModeMsg    = { fg = p.fg_see },
     MoreMsg    = { fg = p.fg_read },

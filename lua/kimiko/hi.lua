@@ -6,6 +6,7 @@ local groups = {
     Normal     = { fg = p.fg1 },
     NonText    = { fg = p.bg_vis },
     SpecialKey = { fg = p.fg4 },
+    Conceal    = { fg = p.line },
     ModeMsg    = { fg = p.fg_see },
     MoreMsg    = { fg = p.fg_read },
   },

@@ -4,8 +4,8 @@ local M = {}
 M.palette = {
   -- CORE BG SHADES (dark → light)
   b00       = "#000000",
-  bg0       = "#080808", -- ColorColumn
-  bg1       = "#0d1111", -- CursorLine
+  bg0       = "#0d0f0f", -- CursorLine
+  bg1       = "#1d1a1b", -- CursorLine
   bg2       = "#1d2121", -- CursorColumn
   bg3       = "#323030",
 

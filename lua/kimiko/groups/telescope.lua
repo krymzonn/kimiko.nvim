@@ -23,9 +23,9 @@ function M.get(p)
     --TelescopeMatching       = { fg = p.accent, bold = true }, -- fuzzy matches
 
     ---- Preview
-    TelescopePreviewBorder = { fg = p.fg_read }, -- preview frame
-    TelescopePreviewNormal = { fg = p.fg1 },     -- preview bg/fg
-    TelescopePreviewTitle  = { fg = p.fg_read }, -- "Preview" title
+    TelescopePreviewTitle  = { fg = p.fg_see },  -- "Preview" title
+    TelescopePreviewBorder = { fg = p.fg_see },  -- preview frame
+    TelescopePreviewNormal = { fg = p.fg_read }, -- preview bg/fg
 
     ---- Multi-select
     --TelescopeMultiSelection = { fg = p.good, bold = true }, -- selected markers

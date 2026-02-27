@@ -6,7 +6,7 @@ function M.get(p)
     PmenuSel             = { fg = p.fg3, bg = p.bg_sel },
     StatusLine           = { fg = p.fg_read, bg = p.bg3 },
     StatusLineNC         = { fg = p.fg_see, bg = p.bg3 },
-    VertSplit            = { fg = p.line, bg = p.bg3 },
+    VertSplit            = { fg = p.bg3 },
     Search               = { bg = p.bg_search, underline = true },
     IncSearch            = { fg = p.deep_inc, bg = p.active },
     Visual               = { bg = p.bg_vis },
@@ -37,6 +37,16 @@ function M.get(p)
     GitSignsTopdelete    = { fg = p.boom },
     GitSignsUntracked    = { fg = p.h6 },
 
+    NormalFloat          = { fg = p.fg_see, bg = p.bg1 }, -- subtle bg lift
+    FloatBorder          = { fg = p.bg3, bg = p.bg1 },
+    FloatTitle           = { fg = p.fg2 },
+    FloatShadow          = { bg = p.line },
+    FloatShadowThrough   = { bg = p.bg0 },
+
+    LazyButton           = { bg = p.bg2, fg = p.h5 },
+    LazySpecial          = { fg = p.fn },
+    --LazySpecial          = { fg = p.fn },
+    --LazyComment          = { fg = p.h5 },
 
     --IndentBlanklineContextChar = { fg = p.h5 }
   }

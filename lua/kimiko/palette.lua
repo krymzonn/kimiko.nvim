@@ -34,14 +34,14 @@ M.palette = {
   op        = "#f85d84",
   kw        = "#f8d15d", -- Statement
   active    = "#d1f85d", -- 'cypher', active window/element
-  bg_match  = "#526600", -- MatchParen
   fn        = "#d1f8f8", -- Function, Identifier
   fgc       = "#aad1d1", -- os dim
 
   -- UI / TAB / SEARCH / DIFF
   deep_inc  = "#670044", -- IncSearch
-  bg_search = "#00686c", -- Search
-  bg_vis    = "#063662", -- Visual, DiffText
+  bg_match  = "#87004f", -- MatchParen
+  bg_search = "#00874f", -- Search
+  bg_vis    = "#004f87", -- Visual
   bg_chg    = "#232345", -- DiffChange
   bg_add    = "#1b3f00", -- DiffAdd
   bg_del    = "#4c1100", -- DiffDelete

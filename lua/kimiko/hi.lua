@@ -61,7 +61,7 @@ groups.ui = require("kimiko.groups.ui").get(p)
 --groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
 groups.snacks = require("kimiko.groups.snacks").get(p)
 groups.diagnostics = require("kimiko.groups.diagnostics").get(p)
-groups.telescope = require("kimiko.groups.diagnostics").get(p)
+groups.telescope = require("kimiko.groups.telescope").get(p)
 
 local bold_groups = {
   "Conditional", "Define", "Exception", "Include", "Operator", "Type",
@@ -74,11 +74,11 @@ local bold_underline_groups = {
 }
 local underline_groups = {} -- left empty
 local transparent_groups = {
-  "Normal", "NormalNC", "NonText", "SpecialKey", "SignColumn", "FoldColumn",
-  "MsgArea", "EndOfBuffer", "ModeMsg", "MoreMsg", "LineNr",
-  "LineNrAbove", "LineNrBelow", "WinBar", "WinBarNC", "StatusLineNC",
-  "TabLine", "TabLineFill", "TabLineSel", "VertSplit", "WinSeparator",
-  "Pmenu", "PmenuSel", -- add floats later
+  --  "Normal", "NormalNC", "NonText", "SpecialKey", "SignColumn", "FoldColumn",
+  --  "MsgArea", "EndOfBuffer", "ModeMsg", "MoreMsg", "LineNr",
+  --  "LineNrAbove", "LineNrBelow", "WinBar", "WinBarNC", "StatusLineNC",
+  --  "TabLine", "TabLineFill", "TabLineSel", "VertSplit", "WinSeparator",
+  --  "Pmenu", "PmenuSel", -- add floats later
 }
 
 
@@ -86,9 +86,9 @@ local function setup(opts)
   for _, tbl in pairs(groups) do
     for name, def in pairs(tbl) do
       local attrs = vim.deepcopy(def or {})
-      if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
-        attrs.bg = "NONE"
-      end
+      --if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
+      --  attrs.bg = "NONE"
+      --end
       if vim.tbl_contains(bold_groups, name) then
         attrs.bold = true
       end

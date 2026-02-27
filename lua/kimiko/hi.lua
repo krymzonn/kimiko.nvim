@@ -86,9 +86,9 @@ local function setup(opts)
   for _, tbl in pairs(groups) do
     for name, def in pairs(tbl) do
       local attrs = vim.deepcopy(def or {})
-      --if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
-      --  attrs.bg = "NONE"
-      --end
+      if opts.transparent and vim.tbl_contains(transparent_groups, name) and attrs.bg and attrs.bg ~= "NONE" then
+        attrs.bg = "NONE"
+      end
       if vim.tbl_contains(bold_groups, name) then
         attrs.bold = true
       end
@@ -108,7 +108,6 @@ local function setup(opts)
 
   -- Plugins (inside setup for p/opts)
   local plugins = {}
-  --plugins.bufferline = require("kimiko.plugins.bufferline").get(p, opts)
   for _, defs in pairs(plugins) do
     for group, attrs in pairs(defs) do
       hl(0, group, attrs)

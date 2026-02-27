@@ -3,32 +3,34 @@ local M = {}
 function M.get(p)
   return {
     -- Core
-    TelescopeNormal         = { fg = p.fg_read, bg = p.bg0 },           -- main bg/fg
-    TelescopeBorder         = { fg = p.bg3, bg = p.bg0 },               -- outer frame
-    TelescopeTitle          = { fg = p.bg1, bg = p.active, bold = true }, -- generic title
+    TelescopeNormal        = { fg = p.fg_read }, -- main bg/fg
+    TelescopeBorder        = { fg = p.fn },      -- outer frame
+    TelescopeTitle         = { fg = p.fn },      -- generic title
 
-    -- Prompt
-    TelescopePromptBorder   = { fg = p.bg2, bg = p.bg1 },  -- input frame
-    TelescopePromptNormal   = { fg = p.fg1, bg = p.bg1 },  -- input bg/fg
-    TelescopePromptTitle    = { fg = p.bg1, bg = p.good }, -- "Prompt" title
-    TelescopePromptPrefix   = { fg = p.active, bg = p.bg1 }, -- > icon
-    TelescopePromptCounter  = { fg = p.fg_see, bg = p.bg1 }, -- match count
+    ---- Prompt
+    TelescopePromptBorder  = { fg = p.good }, -- input frame
+    TelescopePromptNormal  = { fg = p.loop }, -- input bg/fg
+    TelescopePromptTitle   = { fg = p.good }, -- "Prompt" title
+    TelescopePromptPrefix  = { fg = p.good }, -- > icon
+    TelescopePromptCounter = { fg = p.fgc },  -- match count
 
-    -- Results
-    TelescopeResultsBorder  = { fg = p.bg3, bg = p.bg0 },            -- list frame
-    TelescopeResultsNormal  = { fg = p.fg_read, bg = p.bg0 },        -- list bg/fg
-    TelescopeResultsTitle   = { fg = p.bg1, bg = p.fn },             -- "Results" title
-    TelescopeSelection      = { fg = p.fg1, bg = p.bg2, bold = true }, -- selected item
-    TelescopeMatching       = { fg = p.accent, bold = true },        -- fuzzy matches
+    ---- Results
+    TelescopeResultsBorder = { fg = p.loop },             -- list frame
+    TelescopeResultsNormal = { fg = p.fgc },              -- list bg/fg
+    TelescopeMatching      = { fg = p.loop },             -- "Results" title
+    TelescopeResultsTitle  = { fg = p.loop },             -- "Results" title
+    TelescopeSelection     = { bg = p.good, fg = p.b00 }, -- selected item
+    --TelescopeMatching       = { fg = p.accent, bold = true }, -- fuzzy matches
 
-    -- Preview
-    TelescopePreviewBorder  = { fg = p.bg3, bg = p.bg0 },   -- preview frame
-    TelescopePreviewNormal  = { fg = p.fg_read, bg = p.bg0 }, -- preview bg/fg
-    TelescopePreviewTitle   = { fg = p.bg1, bg = p.kw },    -- "Preview" title
+    ---- Preview
+    TelescopePreviewBorder = { fg = p.fg_read }, -- preview frame
+    TelescopePreviewNormal = { fg = p.fg1 },     -- preview bg/fg
+    TelescopePreviewTitle  = { fg = p.fg_read }, -- "Preview" title
 
-    -- Multi-select
-    TelescopeMultiSelection = { fg = p.good, bold = true }, -- selected markers
-    TelescopeMultiIcon      = { fg = p.good },              -- + icons
+    ---- Multi-select
+    --TelescopeMultiSelection = { fg = p.good, bold = true }, -- selected markers
+    --TelescopeMultiIcon      = { fg = p.good },              -- + icons
+    --["TelescopePromptBorder"] = { fg = p.bg2, bg = p.bg1 }
   }
 end
 

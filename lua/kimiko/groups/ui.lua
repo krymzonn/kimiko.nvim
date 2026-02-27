@@ -2,8 +2,6 @@ local M = {}
 
 function M.get(p)
   return {
-    Pmenu                = { fg = p.line, bg = p.bg2 },
-    PmenuSel             = { fg = p.fg3, bg = p.bg_sel },
     StatusLine           = { fg = p.fg_read, bg = p.bg3 },
     StatusLineNC         = { fg = p.fg_see, bg = p.bg3 },
     VertSplit            = { fg = p.bg3 },
@@ -47,6 +45,51 @@ function M.get(p)
     LazySpecial          = { fg = p.fn },
     --LazySpecial          = { fg = p.fn },
     --LazyComment          = { fg = p.h5 },
+
+
+    Pmenu         = { fg = p.fg1, bg = p.b00 },
+    PmenuSel      = { fg = p.b00, bg = p.good },
+    PmenuMatch    = { fg = p.loop, bg = p.b00 },
+    PmenuMatchSel = { fg = p.bg_vis, bg = p.good },
+    PmenuKind     = { fg = p.fg3, bg = p.b00 },
+    PmenuKindSel  = { fg = p.bg_chg, bg = p.good },
+
+
+    ---BlinkCmpMenu          = { fg = p.fg_read, bg = p.line },
+    --BlinkCmpMenuBorder    = { fg = p.bg3, bg = p.bg1 },
+    ---BlinkCmpMenuSelection = { fg = p.b00, bg = p.good },
+
+    -- -- Labels
+    -- BlinkCmpLabel           = { fg = p.fg1 },
+    -- BlinkCmpLabelDeprecated = { fg = p.fg_see, strikethrough = true },
+    -- BlinkCmpLabelMatch      = { fg = p.accent, bold = true },
+
+    -- -- Kinds (default + per-kind)
+    -- BlinkCmpKind            = { fg = p.kw },
+    -- BlinkCmpKindText        = { fg = p.str },
+    -- BlinkCmpKindVariable    = { fg = p.fg1 },
+    -- BlinkCmpKindFunction    = { fg = p.fn },
+    -- BlinkCmpKindMethod      = { fg = p.fn },
+    -- BlinkCmpKindConstant    = { fg = p.num },
+    -- BlinkCmpKindClass       = { fg = p.good },
+    -- BlinkCmpKindInterface   = { fg = p.good },
+    -- BlinkCmpKindModule      = { fg = p.kw },
+    -- BlinkCmpKindProperty    = { fg = p.fg3 },
+    -- BlinkCmpKindKeyword     = { fg = p.kw },
+    -- BlinkCmpKindFile        = { fg = p.fine },
+
+    -- -- Selected kinds (recent addition)
+    -- BlinkCmpKindSel         = { fg = p.active, bold = true },
+    -- -- Add per-kind Sel if needed: BlinkCmpKindFunctionSel = { ... }
+
+    -- -- Docs/Signature
+    -- BlinkCmpDoc             = { fg = p.fg_read, bg = p.bg0 },
+    -- BlinkCmpDocBorder       = { fg = p.bg3, bg = p.bg0 },
+    -- BlinkCmpSignature       = { fg = p.fg1, bg = p.bg1 },
+    -- BlinkCmpSignatureBorder = { fg = p.bg3, bg = p.bg1 },
+
+    -- -- Source (bottom)
+    -- BlinkCmpSource          = { fg = p.fg_see, bg = p.bg1 },
 
     --IndentBlanklineContextChar = { fg = p.h5 }
   }

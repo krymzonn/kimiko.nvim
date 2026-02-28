@@ -5,7 +5,7 @@ Usage:
   python colorbook.py --mode sem lua/kimiko/palette.lua waybar.css alacritty.toml *.md > kimiko-book.svg
 """
 
-import re, argparse, sys, colorsys
+import re, argparse, colorsys
 from pathlib import Path
 try:
     import tomllib
@@ -13,7 +13,7 @@ except ImportError:
     tomllib = None
 
 class Swatch:
-    def __init__(self, hex_color: str, labels: list[str], sources: set = None):
+    def __init__(self, hex_color: str, labels: list[str], sources: set ):
         self.hex = hex_color.lower()
         self.labels = labels[:5]
         self.sources = sources or set()
@@ -87,16 +87,12 @@ def luminance(hex_color: str) -> float:
     return (0.299 * r + 0.587 * g + 0.114 * b) / 255
 
 # ── SVG v5 ─────────────────────────────────────────────────────────────────
+#W, H, PAD = 168, 98, 16
 W, H, PAD = 144, 128, 0
 STROKE_UNIQUE = "#555555"
 STROKE_DUP    = "#3a3a3a"   # 25% gray (dark) as requested
 LEFT = 26
 COLS = 8
-#W, H, PAD = 168, 98, 16
-#STROKE_UNIQUE = "#555555"
-#STROKE_DUP    = "#3a3a3a"   # 25% gray (dark) as requested
-#LEFT = 26
-#COLS = 8
 
 def generate_svg(book: PaletteBook, mode: str) -> str:
     # Apply mode

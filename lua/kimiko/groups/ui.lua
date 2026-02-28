@@ -55,7 +55,7 @@ function M.get(p)
     --PmenuKindSel  = { fg = p.bg_chg, bg = p.good },
 
 
-    Pmenu         = { bg = p.line },
+    Pmenu         = { fg = p.fgc, bg = p.line },
     PmenuSel      = { bg = p.bg_add },
     PmenuMatch    = { fg = p.num, bg = p.line },
     PmenuMatchSel = { fg = p.accent, bg = p.bg_add },

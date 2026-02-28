@@ -7,7 +7,7 @@ M.palette = {
   bg0       = "#0d0f0f", -- darkest base
   bg1       = "#1d1a1b", -- warmer
   bg2       = "#1d2121", -- 'standard'
-  bg3       = "#323030", -- interface bars
+  bg3       = "#2d2929", -- interface bars
 
   -- CORE FG SHADES (bright → dim)
   fg0       = "#ffffff", -- special cases only

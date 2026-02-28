@@ -60,6 +60,21 @@ def parse_alacritty_toml(content: str) -> list[Section]:
     except Exception:
         return []
 
+def parse_colors_toml(content: str) -> list[Section]:
+    if not tomllib: return []
+    try:
+        data = tomllib.loads(content)
+        sections = []
+        colors = data
+        sec = Section("Colors")
+        for k, v in colors.items():
+            if isinstance(v, str) and v.startswith("#"):
+                sec.swatches.append(Swatch(v, [k], {"colors"}))
+        sections.append(sec)
+        return sections
+    except Exception:
+        return []
+
 def parse_table(content: str) -> Section:
     sec = Section("Comparison tables")
     seen = {}
@@ -186,8 +201,10 @@ def main():
         elif path.suffix == ".css":
             book.sections.append(parse_waybar_css(content))
         elif path.suffix == ".toml":
-            for s in parse_alacritty_toml(content):
+            for s in parse_colors_toml(content):
                 book.sections.append(s)
+                #for s in parse_alacritty_toml(content):
+                #book.sections.append(s)
         else:
             book.sections.append(parse_table(content))
 

@@ -59,7 +59,7 @@ local groups = {
 }
 groups.treesitter = require("kimiko.groups.treesitter").get(p)
 groups.ui = require("kimiko.groups.ui").get(p)
---groups.lsp = require("kimiko.groups.lsp").get(p) -- goes first
+--groups.lsp = require("kimiko.groups.lsp").get(p) -- better off treesitter
 groups.snacks = require("kimiko.groups.snacks").get(p)
 groups.diagnostics = require("kimiko.groups.diagnostics").get(p)
 groups.telescope = require("kimiko.groups.telescope").get(p)
@@ -107,13 +107,13 @@ local function setup(opts)
     end
   end
 
-  -- Plugins (inside setup for p/opts)
-  local plugins = {}
-  for _, defs in pairs(plugins) do
-    for group, attrs in pairs(defs) do
-      hl(0, group, attrs)
-    end
-  end
+  ---- Plugins (inside setup for p/opts)
+  --local plugins = {}
+  --for _, defs in pairs(plugins) do
+  --  for group, attrs in pairs(defs) do
+  --    hl(0, group, attrs)
+  --  end
+  --end
 end
 
 return { setup = setup }

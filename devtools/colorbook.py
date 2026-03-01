@@ -25,7 +25,7 @@ class Section:
 
 class PaletteBook:
     def __init__(self):
-        self.title = "Kimiko + Omarchy Palette Book"
+        self.title = "Kimiko Omarchy+.nvim Palette"
         self.sections: list[Section] = []
 
 # ── Parsers (source tracking) ───────────────────────────────────────────────
@@ -139,7 +139,7 @@ def generate_svg(book: PaletteBook, mode: str) -> str:
     <style>
       text {{ font-family: GoMono Nerd Font Mono, monospace; }}
       .title {{ font-size: 26px; fill: #f8d1aa; font-weight: bold; }}
-      .section {{ font-size: 18px; fill: #eeeeee; }}
+      .section {{ font-size: 18px; fill: #aaaaab; }}
       .hex {{ font-size: 14px; font-weight: bold; }}
       .label {{ font-size: 12px; font-family: sans; }}
     </style>

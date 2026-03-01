@@ -31,11 +31,11 @@ function M.get(p)
     GitSignsAdd          = { fg = p.fine },
     GitSignsChange       = { fg = p.fg4 },
     GitSignsDelete       = { fg = p.op },
-    GitSignsChangedelete = { fg = p.warn }, -- mixed
+    GitSignsChangedelete = { fg = p.warn },
     GitSignsTopdelete    = { fg = p.boom },
     GitSignsUntracked    = { fg = p.h6 },
 
-    NormalFloat          = { fg = p.fg_see, bg = p.bg1 }, -- subtle bg lift
+    NormalFloat          = { fg = p.fg_see, bg = p.bg1 },
     FloatBorder          = { fg = p.bg3, bg = p.bg1 },
     FloatTitle           = { fg = p.fg2 },
     FloatShadow          = { bg = p.line },
@@ -43,16 +43,8 @@ function M.get(p)
 
     LazyButton           = { bg = p.bg2, fg = p.h5 },
     LazySpecial          = { fg = p.fn },
-    --LazySpecial          = { fg = p.fn },
-    --LazyComment          = { fg = p.h5 },
-
-
-    --Pmenu         = { fg = p.fg1, bg = p.b00 },
-    --PmenuSel      = { fg = p.b00, bg = p.good },
-    --PmenuMatch    = { fg = p.loop, bg = p.b00 },
-    --PmenuMatchSel = { fg = p.bg_vis, bg = p.good },
-    --PmenuKind     = { fg = p.fg3, bg = p.b00 },
-    --PmenuKindSel  = { fg = p.bg_chg, bg = p.good },
+    -- LazySpecial          = { fg = p.fn },
+    -- LazyComment          = { fg = p.h5 },
 
 
     Pmenu         = { fg = p.fgc, bg = p.line },
